@@ -1,117 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StudentHub - Login</title>
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    background: whitesmoke;
-    font-family:Arial, sans-serif;
-}
-
-
-
-header{
-    padding:20px;
-}
-
-nav{
-    width:95%;
-    height:35px;
-    margin:auto;
-    background: white;
-    border-radius:20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 15px;
-}
-
-.left{
-    font-size:18px;
-}
-
-.right{
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.profile{
-    width:25px;
-    height:25px;
-    background:blueviolet;
-    color:white;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:12px;
-}
-
-
-
-main{
-    text-align:center;
-}
-
-.login{
-    font-family:"Courier New", monospace;
-    font-size:60px;
-    margin-top:40px;
-}
-
-
-
-.line{
-    width:180px;
-    height:4px;
-    background:black;
-    margin:20px auto 50px;
-    border-radius:5px;
-}
-
-
-
-.box{
-    width:320px;
-    background: rgb(0, 85, 128);
-    margin:auto;
-    padding:25px;
-    border-radius:12px;
-    text-align:left;
-}
-
-.user,
-.pass{
-    margin-bottom:25px;
-    color: aliceblue;
-}
-
-label{
-    font-size:14px;
-}
-
-input{
-    width:100%;
-    padding:10px;
-    border:none;
-    border-radius:20px;
-    margin-top:8px;
-    outline:none;
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Login</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -119,19 +12,10 @@ input{
 <header>
 
 <nav>
-
-<div class="left">
-    <a href="dashboard.html" style="text-decoration:none; color:black;">☰</a>
-</div>
+<div class="left"></div>
 
 <div class="right">
-<div>
-🌙
-</div>
-
-<div class="profile">
-N
-</div>
+<divid="theme-toggle" style="cursor:pointer;">🌙</div>
 
 </div>
 
@@ -146,18 +30,23 @@ N
 <h1 class="login">LOGIN</h1>
 
 <div class="line"></div>
-
 <form class="box">
 
-<div class="user">
-<label for="user">Username</label><br>
-<input type="text" id="user" placeholder="Enter Username">
-</div>
+    <div class="user">
+        <label for="user">Username</label><br>
+        <input type="text" id="user" placeholder="Enter Username">
+    </div>
 
-<div class="pass">
-<label for="pass">Password</label><br>
-<input type="password" id="pass" placeholder="Enter Password">
-</div>
+    <div class="pass">
+        <label for="pass">Password</label><br>
+        <input type="password" id="pass" placeholder="Enter Password">
+    </div>
+
+    <div class="btn">
+        <button type="button" onclick="window.location.href='dashboard.html'">
+            Login
+        </button>
+    </div>
 
 </form>
 </section>
