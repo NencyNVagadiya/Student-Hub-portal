@@ -83,7 +83,7 @@ main{
 }
 
 .login{
-    font-family:'Roboto Slab', serif;
+    font-family:"Roboto Slab", serif;
     color: #fff;
     font-size: 60px;
     font-weight: 800;
@@ -159,7 +159,7 @@ button:hover{
 }
 
 .dark-mode nav{
-    background:#333;
+    background:none;
 }
 
 .dark-mode .box{
