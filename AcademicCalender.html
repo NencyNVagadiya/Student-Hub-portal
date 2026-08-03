@@ -4,64 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>StudentHub Dashboard</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="academiccalander.css">
 </head>
-
 <body>
-
- <header>
+    
+     <header>
     <nav>
       <div class="left" onclick="toggleMenu()">☰</div>
       <div id="sidebar" class="sidebar">
          <div class="close-btn" onclick="toggleMenu()"> ← </div>
             <a href="AcademicCalender.html">📅ACADEMIC CALENDAR </a>
-            <a href="faculty.html">👩🏼‍🏫🧑🏻‍🏫FACULTY(DEPSTAR)</a>
+            <a href="faculty.html">👩🏼‍🏫🧑🏻‍🏫FACULTYS(DEPSTAR)</a>
             <a href="fees.html">💳 Fees</a>
             <a href="coursera.html">🎓 Coursera Certificates</a>
             <a href="attendance.html">📊 Attendance</a>
             <a href="certificate.html">📜 Certificates</a></div>
     
       <div class="right" id="theme-toggle">🌙</div>
-    </nav>
+      </nav>
  </header>
 
-   
+ <img src="image/academic-calender.png" alt="Academic Calendar" class="calendar">
 
-<script>
+ <script>
+    const toggle = document.getElementById("theme-toggle");
 
-function toggleMenu(){
+    toggle.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
 
-    const sidebar = document.getElementById("sidebar");
-
-    if(sidebar.style.left=="0px"){
-        sidebar.style.left="-300px";
-    }
-    else{
-        sidebar.style.left="0px";
-    }
-
-}
-
-</script>
-
-
-<script>
-const moon = document.getElementById("theme-toggle");
-
-    moon.onclick = function () {
-    document.body.classList.toggle("dark-mode");
-
-    if(document.body.classList.contains("dark-mode"))
-     {
-        moon.innerHTML = "☀️";
-     }
-    else{
-        moon.innerHTML = "🌙";
-    }
-}
-</script>
-
-<script>
+        if (document.body.classList.contains("dark-mode")) {
+            toggle.textContent = "☀️";
+        } else {
+            toggle.textContent = "🌙";
+        }
+    });
+    </script>
+    
+    <script>
 
 function toggleMenu(){
 
@@ -77,6 +56,5 @@ function toggleMenu(){
 }
 
 </script>
-
 </body>
 </html>
