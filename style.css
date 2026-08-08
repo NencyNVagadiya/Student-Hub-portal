@@ -1,22 +1,7 @@
-.dark-mode{
-    background:#1b1b1b;
-}
-
-.dark-mode nav{
-    background:#222;
-}
-
-.dark-mode .card{
-    background:#333;
-}
-
-.dark-mode .card h2{
-    color:white;
-}
 nav{
     width:95%;
     height:60px;
-    background:#0b4d74;
+    background:#0f5e8c;
     margin:auto;
     border-radius:15px;
 
@@ -86,4 +71,19 @@ nav{
 .close-btn:hover{
     color:#ddd;
     transform:translateX(-5px);
+}
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        url("./image/2ndpage.jpeg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    min-height:100vh;
 }

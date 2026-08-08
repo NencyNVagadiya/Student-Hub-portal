@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudentHub fees</title>
+<link rel="stylesheet" href="fees.css">
+</head>
+<body>
+
+ <header>
+    <nav>
+      <div class="left" onclick="toggleMenu()">☰</div>
+      <div id="sidebar" class="sidebar">
+         <div class="close-btn" onclick="toggleMenu()"> ← </div>
+            <a href="AcademicCalender.html">📅ACADEMIC CALENDAR </a>
+            <a href="faculty.html">👩🏼‍🏫🧑🏻‍🏫FACULTYS(DEPSTAR)</a>
+            <a href="fees.html">💳 Fees</a>
+            <a href="contact.html">📞 Contact Us</a>
+            <a href="attendance.html">📊 Attendance</a>
+            <a href="certificate.html">📜 Certificates</a>
+        </div>
+        <div class="right" id="theme-toggle">🌙</div>
+    </nav>
+ </header>
+
+ <script>
+    const toggle = document.getElementById("theme-toggle");
+
+    toggle.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+            toggle.textContent = "☀️";
+        } else {
+            toggle.textContent = "🌙";
+        }
+    });
+ </script>
+
+ <script>
+ function toggleMenu(){
+     const sidebar = document.getElementById("sidebar");
+
+     if(sidebar.style.left=="0px"){
+         sidebar.style.left="-300px";
+     }
+     else{
+         sidebar.style.left="0px";
+     }
+ }
+ </script>
+
+ <h1>Fees Details</h1>
+
+<table>
+
+    <tr>
+        <th>Fees Type</th>
+        <th>Department</th>
+        <th>Amount (₹)</th>
+    </tr>
+
+    <tr>
+        <td rowspan="3">Academic</td>
+        <td>Computer Engineering(CE)</td>
+        <td>₹5,92,000</td>
+    </tr>
+
+    <tr>
+        <td>Computer Science and Engineering(CSE)</td>
+        <td>₹5,92,000</td>
+    </tr>
+
+    <tr>
+        <td>Information Technology(IT)</td>
+        <td>₹5,92,000</td>
+    </tr>
+
+    <tr>
+        <td>Exam</td>
+        <td>All Departments</td>
+        <td>₹3,500</td>
+    </tr>
+
+</table>
+</body>
+</html>
