@@ -1,0 +1,181 @@
+nav{
+    width:95%;
+    height:60px;
+    background:#0f5e8c;
+    margin:auto;
+    border-radius:15px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 25px;
+    color:white;
+}
+
+.left{
+    font-size:30px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.left:hover{
+    transform:scale(1.1);
+}
+
+.right{
+    font-size:28px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.right:hover{
+     transform:rotate(20deg);
+}
+
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:-300px;
+    width:260px;
+    height:100%;
+    background:#0b4d74;
+
+    transition:0.4s;
+    padding-top:80px;
+
+    box-shadow:5px 0 15px rgba(0,0,0,.3);
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:20px;
+    font-size:22px;
+    transition:.3s;
+}
+
+.sidebar a:hover{
+    background:#0066cc;
+}
+.close-btn{
+    color:white;
+    font-size:32px;
+    padding:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.close-btn:hover{
+    color:#ddd;
+    transform:translateX(-5px);
+}
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.45)),
+        url("./image/contact.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    min-height:100vh;
+}
+.content{
+    margin-left:20%;
+    margin-top:80px;
+}
+
+/* Welcome */
+.content h3{
+    font-size:32px;
+    color:#071b38;
+    margin-bottom:5px;
+}
+
+/* StudentHub */
+.content h1{
+    font-size:64px;
+    color:#07519a;
+    margin:0 0 15px 0;
+}
+/* Yellow line */
+.line{
+    width:160px;
+    height:5px;
+    background:#ffd000;
+    margin-bottom:20px;
+}
+
+/* Description */
+.content p{
+    font-size:20px;
+    line-height:1.7;
+    color:#071b38;
+}
+/* ================= DARK MODE ================= */
+
+.dark-mode{
+    /* Keep the same background image */
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("./image/contact.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    color:white;
+}
+
+/* Keep navbar blue */
+.dark-mode nav{
+    background:#0f5e8c;
+}
+
+/* Keep sidebar blue */
+.dark-mode .sidebar{
+    background:#0b4d74;
+}
+
+/* Welcome text */
+.dark-mode .content h3{
+    color:white;
+}
+
+/* StudentHub heading */
+.dark-mode .content h1{
+    color:#66b3ff;
+}
+
+/* Paragraph */
+.dark-mode .content p{
+    color:white;
+}
+
+/* Yellow line stays the same */
+.dark-mode .line{
+    background:#ffd000;
+}
+
+/* Sidebar links */
+.dark-mode .sidebar a{
+    color:white;
+}
+
+/* Sidebar hover */
+.dark-mode .sidebar a:hover{
+    background:#0066cc;
+}
+
+/* Close button */
+.dark-mode .close-btn{
+    color:white;
+}
