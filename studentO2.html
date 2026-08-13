@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Student O2</title>
+    <link rel="stylesheet" href="studentO2.css">
+</head>
+
+<body>
+
+<header>
+    <nav>
+
+        <div class="left" onclick="toggleMenu()">☰</div>
+
+        <div id="sidebar" class="sidebar">
+
+            <div class="close-btn" onclick="toggleMenu()">←</div>
+
+            <a href="Home.html">🏡 Home page</a>
+            <a href="AcademicCalender.html">📅 Academic Calendar</a>
+            <a href="faculty.html">👩🏼‍🏫🧑🏻‍🏫 Faculty(DEPSTAR)</a>
+            <a href="fees.html">💳 Fees</a>
+            <a href="contact.html">📞 Contact Us</a>
+            <a href="attendance.html">📊 Attendance</a>
+            <a href="studentO2.html">🧑‍🎓 Student O2</a>
+            <a href="Scholarship.html">🎓 Scholarship</a>
+            <a href="study-materials.html">📚 Study Materials</a>
+
+        </div>
+
+        <div class="right" id="theme-toggle">🌙</div>
+
+    </nav>
+</header>
+
+
+<main>
+
+    <h1>🧑‍🎓 Student O2 – Go Home Assistant</h1>
+
+    <p class="subtitle">
+        Plan your leave smartly. We suggest the best option for you.
+    </p>
+
+
+    <!-- MAIN GRID -->
+    <section class="main-grid">
+
+        <!-- TRIP DETAILS -->
+        <div class="card trip-card">
+
+            <h2>🧳 Trip Details</h2>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Reason for Going Home</label>
+
+                    <select id="reason">
+                        <option value="Family Function">Family Function</option>
+                        <option value="Personal Work">Personal Work</option>
+                        <option value="Festival">Festival</option>
+                        <option value="Emergency">Family Emergency</option>
+                        <option value="Medical">Medical Reason</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Departure Date</label>
+                    <input type="date" id="departure">
+                </div>
+
+
+                <div class="form-group">
+                    <label>Return Date</label>
+                    <input type="date" id="returnDate">
+                </div>
+
+
+                <div class="form-group">
+                    <label>Number of Days</label>
+                    <input
+                        type="number"
+                        id="days"
+                        min="1"
+                        max="30"
+                        value="3">
+                </div>
+
+
+                <div class="form-group">
+                    <label>Current Overall Attendance</label>
+                    <input
+                        type="number"
+                        id="attendance"
+                        min="0"
+                        max="100"
+                        value="82">
+                </div>
+
+
+                <div class="form-group">
+                    <label>Important Exam During Leave?</label>
+
+                    <select id="exam">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <button class="suggest-btn" onclick="getSuggestion()">
+                💡 Get Suggestion
+            </button>
+
+        </div>
+
+
+        <!-- SUGGESTION -->
+        <div class="card suggestion-card">
+
+            <h2>🛡️ Your Suggestion</h2>
+
+            <div class="attendance-circle">
+                <span id="attendanceDisplay">82%</span>
+                <small>Attendance</small>
+            </div>
+
+
+            <div id="attendanceStatus" class="good-status">
+                Good Attendance
+            </div>
+
+
+            <div id="suggestionBox" class="suggestion-box">
+
+                <h3>✔ Leave may be manageable.</h3>
+
+                <p>
+                    You can consider taking leave.
+                    Make sure to cover missed lectures and assignments.
+                </p>
+
+            </div>
+
+
+            <div class="note-box">
+
+                ⚠️ <b>Note</b>
+
+                <p>
+                    Try to maintain your attendance above 75%.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- SUMMARY -->
+        <div class="card summary-card">
+
+            <h2>📋 Trip Summary</h2>
+
+
+            <div class="summary-row">
+                <span>📌 Reason</span>
+                <strong id="summaryReason">Family Function</strong>
+            </div>
+
+
+            <div class="summary-row">
+                <span>📅 From</span>
+                <strong id="summaryFrom">-</strong>
+            </div>
+
+
+            <div class="summary-row">
+                <span>📅 To</span>
+                <strong id="summaryTo">-</strong>
+            </div>
+
+
+            <div class="summary-row">
+                <span>🗓️ Total Days</span>
+                <strong id="summaryDays">3 Days</strong>
+            </div>
+
+
+            <div class="summary-row">
+                <span>📊 Attendance</span>
+                <strong id="summaryAttendance">82%</strong>
+            </div>
+
+
+            <div class="summary-row">
+                <span>📝 Exam During Leave</span>
+                <strong id="summaryExam">No</strong>
+            </div>
+
+
+            <div class="advice">
+
+                💡 <b>Overall Advice</b>
+
+                <p id="adviceText">
+                    Your attendance is good.
+                    Enjoy your time at home and don't forget to come back on time!
+                </p>
+
+            </div>
+
+
+            <button class="leave-btn" onclick="generateApplication()">
+                📄 Generate Leave Application
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- BEFORE YOU GO -->
+    <section class="before-section">
+
+        <h2>✈️ Before You Go</h2>
+
+
+        <div class="tips-grid">
+
+            <div class="tip blue-tip">
+
+                <div class="tip-icon">📋</div>
+
+                <div>
+                    <h3>1. Inform Your Faculty</h3>
+
+                    <p>
+                        Inform your mentor/faculty
+                        about your leave in advance.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="tip green-tip">
+
+                <div class="tip-icon">📚</div>
+
+                <div>
+                    <h3>2. Complete Pending Work</h3>
+
+                    <p>
+                        Submit pending assignments
+                        and notes before you leave.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="tip yellow-tip">
+
+                <div class="tip-icon">🔔</div>
+
+                <div>
+                    <h3>3. Stay Updated</h3>
+
+                    <p>
+                        Stay in touch with friends
+                        for important updates.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="tip purple-tip">
+
+                <div class="tip-icon">🚆</div>
+
+                <div>
+                    <h3>4. Travel Safe</h3>
+
+                    <p>
+                        Have a safe journey and
+                        take care of yourself.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="bottom-message">
+        ℹ️ Student O2 helps you plan your leave responsibly.
+        Use it wisely and maintain your academics.
+    </div>
+
+</main>
+
+
+
+<!-- ALL JAVASCRIPT -->
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* =========================
+       DATE SUMMARY
+    ========================= */
+
+    const departure = document.getElementById("departure");
+    const returnDate = document.getElementById("returnDate");
+
+    departure.addEventListener("change", function () {
+
+        document.getElementById("summaryFrom").textContent =
+            this.value || "-";
+
+    });
+
+
+    returnDate.addEventListener("change", function () {
+
+        document.getElementById("summaryTo").textContent =
+            this.value || "-";
+
+    });
+
+
+
+    /* =========================
+       OTHER SUMMARY UPDATES
+    ========================= */
+
+    document.getElementById("reason").addEventListener("change", function () {
+
+        document.getElementById("summaryReason").textContent =
+            this.value;
+
+    });
+
+
+    document.getElementById("days").addEventListener("input", function () {
+
+        document.getElementById("summaryDays").textContent =
+            this.value + " Days";
+
+    });
+
+
+    document.getElementById("attendance").addEventListener("input", function () {
+
+        document.getElementById("attendanceDisplay").textContent =
+            this.value + "%";
+
+        document.getElementById("summaryAttendance").textContent =
+            this.value + "%";
+
+    });
+
+
+    document.getElementById("exam").addEventListener("change", function () {
+
+        document.getElementById("summaryExam").textContent =
+            this.value;
+
+    });
+
+});
+
+
+/* =========================
+   GET SUGGESTION
+========================= */
+
+function getSuggestion() {
+
+    const attendance =
+        Number(document.getElementById("attendance").value);
+
+    const exam =
+        document.getElementById("exam").value;
+
+
+    const reason =
+        document.getElementById("reason").value;
+
+
+    const days =
+        Number(document.getElementById("days").value);
+
+
+    /* UPDATE SUMMARY */
+
+    document.getElementById("attendanceDisplay").textContent =
+        attendance + "%";
+
+
+    document.getElementById("summaryAttendance").textContent =
+        attendance + "%";
+
+
+    document.getElementById("summaryReason").textContent =
+        reason;
+
+
+    document.getElementById("summaryDays").textContent =
+        days + " Days";
+
+
+    document.getElementById("summaryExam").textContent =
+        exam;
+
+
+
+    const box =
+        document.getElementById("suggestionBox");
+
+    const status =
+        document.getElementById("attendanceStatus");
+
+    const advice =
+        document.getElementById("adviceText");
+
+
+
+    /* EXAM CHECK */
+
+    if (exam === "Yes") {
+
+        status.textContent = "⚠️ Exam Warning";
+        status.className = "warning-status";
+
+        box.innerHTML = `
+            <h3>❌ Avoid taking leave.</h3>
+
+            <p>
+                You have an important exam during these days.
+                Please attend the exam.
+            </p>
+        `;
+
+        advice.textContent =
+            "An exam is scheduled during your leave period. Plan your trip after the exam.";
+
+    }
+
+
+
+    /* LOW ATTENDANCE */
+
+    else if (attendance < 65) {
+
+        status.textContent = "🔴 Low Attendance";
+        status.className = "low-status";
+
+        box.innerHTML = `
+            <h3>❌ Avoid unnecessary leave.</h3>
+
+            <p>
+                Your attendance is already low.
+                Taking more leave may affect your eligibility.
+            </p>
+        `;
+
+        advice.textContent =
+            "Your attendance is below 65%. Try to attend classes regularly.";
+
+    }
+
+
+
+    /* WARNING */
+
+    else if (attendance < 75) {
+
+        status.textContent = "🟡 Warning";
+        status.className = "warning-status";
+
+        box.innerHTML = `
+            <h3>⚠️ Take leave carefully.</h3>
+
+            <p>
+                Your attendance is between 65% and 74%.
+                Avoid unnecessary absence.
+            </p>
+        `;
+
+        advice.textContent =
+            "Your attendance is close to the minimum level. Take leave only when necessary.";
+
+    }
+
+
+
+    /* GOOD */
+
+    else {
+
+        status.textContent = "🟢 Good Attendance";
+        status.className = "good-status";
+
+        box.innerHTML = `
+            <h3>✔ Leave may be manageable.</h3>
+
+            <p>
+                Your attendance is good.
+                Make sure to cover missed lectures and assignments.
+            </p>
+        `;
+
+        advice.textContent =
+            "Your attendance is good. Enjoy your time at home and don't forget to come back on time!";
+
+    }
+
+}
+
+
+
+/* =========================
+   GENERATE LEAVE APPLICATION
+========================= */
+
+function generateApplication() {
+
+    const reason =
+        document.getElementById("reason").value;
+
+    const from =
+        document.getElementById("departure").value;
+
+    const to =
+        document.getElementById("returnDate").value;
+
+    const days =
+        document.getElementById("days").value;
+
+
+
+    if (!from || !to) {
+
+        alert("Please select departure and return dates.");
+
+        return;
+
+    }
+
+
+
+    const application = `
+To,
+The Faculty: ___________________
+
+Subject: ______________________
+
+Respected ______,
+
+I request leave due to ${reason}.
+
+I would like to go home from ${from} to ${to}
+for ${days} day(s).
+
+I will complete all pending academic work
+after returning to college.
+
+Kindly grant me leave.
+
+Thank you.
+
+Yours sincerely,
+_________________
+`;
+
+
+
+    const newWindow =
+        window.open("", "_blank");
+
+
+
+    if (!newWindow) {
+
+        alert("Please allow pop-ups for this website.");
+
+        return;
+
+    }
+
+
+
+    newWindow.document.write(`
+        <!DOCTYPE html>
+
+        <html>
+
+        <head>
+
+            <title>Leave Application</title>
+
+            <style>
+
+                body {
+                    font-family: Arial, sans-serif;
+                    padding: 40px;
+                    line-height: 1.8;
+                }
+
+                pre {
+                    white-space: pre-wrap;
+                    font-family: Arial, sans-serif;
+                    font-size: 16px;
+                }
+
+                button {
+                    padding: 12px 25px;
+                    background: #2867e8;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    font-size: 15px;
+                }
+
+            </style>
+
+        </head>
+
+
+        <body>
+
+            <pre>${application}</pre>
+
+            <button onclick="window.print()">
+                Print / Save as PDF
+            </button>
+
+        </body>
+
+        </html>
+    `);
+
+    newWindow.document.close();
+
+};
+</script>
+
+
+<script>
+
+function toggleMenu(){
+
+    const sidebar = document.getElementById("sidebar");
+
+    if(sidebar.style.left=="0px"){
+        sidebar.style.left="-300px";
+    }
+    else{
+        sidebar.style.left="0px";
+    }
+
+}
+
+</script>
+
+<script>
+const toggle = document.getElementById("theme-toggle");
+
+/* Apply saved theme when page opens */
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+
+    if (toggle) {
+        toggle.textContent = "☀️";
+    }
+}
+
+/* Change theme */
+if (toggle) {
+    toggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+
+            localStorage.setItem("darkMode", "enabled");
+            toggle.textContent = "☀️";
+
+        } else {
+
+            localStorage.setItem("darkMode", "disabled");
+            toggle.textContent = "🌙";
+
+        }
+
+    });
+}
+</script>
+
+</body>
+</html>

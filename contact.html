@@ -25,8 +25,9 @@
             <a href="fees.html">💳 Fees</a>
             <a href="contact.html">📞 Contact Us</a>
             <a href="attendance.html">📊 Attendance</a>
-            <a href="certificate.html">📜 Certificates</a>
-
+            <a href="studentO2.html">🧑‍🎓 Student O2</a>
+            <a href="Scholarship.html">🎓 Scholarship</a>
+            <a href="study-materials.html">📚 Study Materials</a>
         </div>
 
         <div class="right" id="theme-toggle">🌙</div>
@@ -95,28 +96,12 @@
 <form>
 
     <div class="input-row">
-
-        <input type="text"
-               name="name"
-               placeholder="Your Name"
-               required>
-
-        <input type="email"
-               name="email"
-               placeholder="Your Email"
-               required>
-
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email"  name="email"  placeholder="Your Email"  required>
     </div>
 
-    <input type="text"
-           name="subject"
-           placeholder="Subject"
-           required>
-
-    <textarea name="message"
-              placeholder="Your Message"
-              rows="6"
-              required></textarea>
+    <input type="text" name="subject" placeholder="Subject" required>
+    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
 
     <button type="submit">
         Send Message ✈️
@@ -163,24 +148,38 @@ function toggleMenu() {
 </script>
 
 
-<!-- DARK MODE JAVASCRIPT -->
 <script>
+const toggle = document.getElementById("theme-toggle");
 
-const moon = document.getElementById("theme-toggle");
+/* Apply saved theme when page opens */
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
 
-moon.onclick = function () {
-
-    document.body.classList.toggle("dark-mode");
-
-    if (document.body.classList.contains("dark-mode")) {
-
-        moon.innerHTML = "☀️";
-
-    } else {
-        moon.innerHTML = "🌙";
+    if (toggle) {
+        toggle.textContent = "☀️";
     }
+}
 
-};
+/* Change theme */
+if (toggle) {
+    toggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+
+            localStorage.setItem("darkMode", "enabled");
+            toggle.textContent = "☀️";
+
+        } else {
+
+            localStorage.setItem("darkMode", "disabled");
+            toggle.textContent = "🌙";
+
+        }
+
+    });
+}
 </script>
 
 <script>

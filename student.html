@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudentHub - Login</title>
-    <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
 </head>
 
@@ -19,19 +19,6 @@
 <div id="theme-toggle" style="cursor:pointer;">🌙</div>
 </div>
 
-<script>
-    const toggle = document.getElementById("theme-toggle");/* It selects an HTML element by its ID.*/
-
-    toggle.addEventListener("click", function () { /*It tells JavaScript to listen for an event(click) on an element.*/
-        document.body.classList.toggle("dark-mode");/*It adds or removes a class from an element.*/
-
-        if (document.body.classList.contains("dark-mode")) {
-            toggle.textContent = "☀️";
-        } else {
-            toggle.textContent = "🌙";
-        }
-    });
-    </script>
 </nav>
 
 </header>
@@ -76,6 +63,39 @@ function login() {
 </script>
 </section>
 </main>
+<script>
+const toggle = document.getElementById("theme-toggle");
+
+/* Apply saved theme when page opens */
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+
+    if (toggle) {
+        toggle.textContent = "☀️";
+    }
+}
+
+/* Change theme */
+if (toggle) {
+    toggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+
+            localStorage.setItem("darkMode", "enabled");
+            toggle.textContent = "☀️";
+
+        } else {
+
+            localStorage.setItem("darkMode", "disabled");
+            toggle.textContent = "🌙";
+
+        }
+
+    });
+}
+</script>
 
 </body>
 </html>

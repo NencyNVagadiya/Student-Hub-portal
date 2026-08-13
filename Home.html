@@ -19,7 +19,10 @@
             <a href="fees.html">💳 Fees</a>
             <a href="contact.html">📞 Contact Us</a>
             <a href="attendance.html">📊 Attendance</a>
-            <a href="certificate.html">📜 Certificates</a></div>
+            <a href="studentO2.html">🧑‍🎓 Student O2</a>
+            <a href="Scholarship.html">🎓 Scholarship</a>
+            <a href="study-materials.html">📚 Study Materials</a>
+        </div>
              <div class="logo">
             🎓 <b>StudentHub</b>
             <span>Learn. Connect. Grow.</span>
@@ -63,38 +66,38 @@ function toggleMenu(){
 
 </script>
 
-
 <script>
-const moon = document.getElementById("theme-toggle");
+const toggle = document.getElementById("theme-toggle");
 
-    moon.onclick = function () {
-    document.body.classList.toggle("dark-mode");
+/* Apply saved theme when page opens */
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
 
-    if(document.body.classList.contains("dark-mode"))
-     {
-        moon.innerHTML = "☀️";
-     }
-    else{
-        moon.innerHTML = "🌙";
+    if (toggle) {
+        toggle.textContent = "☀️";
     }
 }
-</script>
 
-<script>
+/* Change theme */
+if (toggle) {
+    toggle.addEventListener("click", function () {
 
-function toggleMenu(){
+        document.body.classList.toggle("dark-mode");
 
-    const sidebar = document.getElementById("sidebar");
+        if (document.body.classList.contains("dark-mode")) {
 
-    if(sidebar.style.left=="0px"){
-        sidebar.style.left="-300px";
-    }
-    else{
-        sidebar.style.left="0px";
-    }
+            localStorage.setItem("darkMode", "enabled");
+            toggle.textContent = "☀️";
 
+        } else {
+
+            localStorage.setItem("darkMode", "disabled");
+            toggle.textContent = "🌙";
+
+        }
+
+    });
 }
-
 </script>
 
 </body>

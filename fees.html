@@ -20,24 +20,46 @@
             <a href="contact.html">📞 Contact Us</a>
             <a href="attendance.html">📊 Attendance</a>
             <a href="certificate.html">📜 Certificates</a>
+            <a href="Scholarship.html">🎓 Scholarship</a>
+            <a href="study-materials.html">📚 Study Materials</a>
         </div>
         <div class="right" id="theme-toggle">🌙</div>
     </nav>
  </header>
 
  <script>
-    const toggle = document.getElementById("theme-toggle");
+const toggle = document.getElementById("theme-toggle");
 
+/* Apply saved theme when page opens */
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+
+    if (toggle) {
+        toggle.textContent = "☀️";
+    }
+}
+
+/* Change theme */
+if (toggle) {
     toggle.addEventListener("click", function () {
+
         document.body.classList.toggle("dark-mode");
 
         if (document.body.classList.contains("dark-mode")) {
+
+            localStorage.setItem("darkMode", "enabled");
             toggle.textContent = "☀️";
+
         } else {
+
+            localStorage.setItem("darkMode", "disabled");
             toggle.textContent = "🌙";
+
         }
+
     });
- </script>
+}
+</script>
 
  <script>
  function toggleMenu(){

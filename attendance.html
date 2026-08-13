@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudentHub Dashboard</title>
+<link rel="stylesheet" href="attendance.css">
+</head>
+<body>
+    
+     <header>
+        <div class="logo">
+            Student<span>Hub</span>
+        </div>
+
+    <nav>
+      <div class="left" onclick="toggleMenu()">☰</div>
+      <div id="sidebar" class="sidebar">
+         <div class="close-btn" onclick="toggleMenu()"> ← </div>
+            <a href="Home.html">🏡Home page</a>
+            <a href="AcademicCalender.html">📅Academic Calendar</a>
+            <a href="faculty.html">👩🏼‍🏫🧑🏻‍🏫Faculty(DEPSTAR)</a>
+            <a href="fees.html">💳 Fees</a>
+            <a href="contact.html">📞 Contact Us</a>
+            <a href="attendance.html">📊 Attendance</a>
+            <a href="studentO2.html">🧑‍🎓 Student O2</a>
+            <a href="Scholarship.html">🎓 Scholarship</a>
+            <a href="study-materials.html">📚 Study Materials</a>
+        </div>
+           
+      <div class="right" id="theme-toggle">🌙</div>
+      </nav>
+ </header>
+
+<main>
+
+        <h1>📊 Attendance</h1>
+        <p class="subtitle">Track your subject-wise attendance</p>
+
+
+        <!-- Overall Attendance -->
+        <section class="overall-card">
+
+            <div class="circle">
+                <span>82%</span>
+            </div>
+
+            <div class="overall-info">
+
+                <h2>Overall Attendance</h2>
+
+                <h3>Good 🟢</h3>
+
+                <div class="attendance-details">
+
+                    <div>
+                        <p>Classes Attended</p>
+                        <strong>41</strong>
+                    </div>
+
+                    <div>
+                        <p>Total Classes</p>
+                        <strong>50</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Summary Cards -->
+        <section class="summary">
+
+            <div class="summary-card blue">
+                <div class="icon">📘</div>
+                <div>
+                    <h3>Total Classes</h3>
+                    <strong>50</strong>
+                    <p>All Subjects</p>
+                </div>
+            </div>
+
+
+            <div class="summary-card green">
+                <div class="icon">✔</div>
+                <div>
+                    <h3>Present</h3>
+                    <strong>41</strong>
+                    <p>82% of total</p>
+                </div>
+            </div>
+
+
+            <div class="summary-card red">
+                <div class="icon">✕</div>
+                <div>
+                    <h3>Absent</h3>
+                    <strong>9</strong>
+                    <p>18% of total</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Subject Attendance -->
+        <section class="table-card">
+
+            <h2>Subject-wise Attendance</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Total Classes</th>
+                            <th>Present</th>
+                            <th>Absent</th>
+                            <th>Attendance</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Mathematics</td>
+                            <td>40</td>
+                            <td class="present">35</td>
+                            <td class="absent">5</td>
+                            <td>
+                                <div class="progress">
+                                    <div style="width:87.5%"></div>
+                                </div>
+                                87.5%
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>C++ Programming</td>
+                            <td>45</td>
+                            <td class="present">38</td>
+                            <td class="absent">7</td>
+                            <td>
+                                <div class="progress">
+                                    <div style="width:84.4%"></div>
+                                </div>
+                                84.4%
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Computer Network</td>
+                            <td>38</td>
+                            <td class="present">30</td>
+                            <td class="absent">8</td>
+                            <td>
+                                <div class="progress">
+                                    <div style="width:78.9%"></div>
+                                </div>
+                                78.9%
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Cloud Computing</td>
+                            <td>35</td>
+                            <td class="present">32</td>
+                            <td class="absent">3</td>
+                            <td>
+                                <div class="progress">
+                                    <div style="width:91.4%"></div>
+                                </div>
+                                91.4%
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Data Structures & Algorithms</td>
+                            <td>42</td>
+                            <td class="present">34</td>
+                            <td class="absent">8</td>
+                            <td>
+                                <div class="progress">
+                                    <div style="width:81%"></div>
+                                </div>
+                                81.0%
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- Bottom Section -->
+        <section class="bottom-section">
+
+            <!-- Monthly Attendance -->
+            <div class="chart-card">
+
+                <h2>Monthly Attendance</h2>
+
+                <div class="chart">
+
+                    <div class="bar-container">
+                        <span>84%</span>
+                        <div class="bar blue-bar" style="height:84%"></div>
+                        <label>June</label>
+                    </div>
+
+                    <div class="bar-container">
+                        <span>82%</span>
+                        <div class="bar green-bar" style="height:82%"></div>
+                        <label>July</label>
+                    </div>
+
+                    <div class="bar-container">
+                        <span>86%</span>
+                        <div class="bar purple-bar" style="height:86%"></div>
+                        <label>August</label>
+                    </div>
+
+                    <div class="bar-container">
+                        <span>80%</span>
+                        <div class="bar yellow-bar" style="height:80%"></div>
+                        <label>September</label>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Attendance Status -->
+            <div class="status-card">
+
+                <h2>Attendance Status</h2>
+
+                <div class="status good">
+                    <span>🟢</span>
+                    <b>Good</b>
+                    <span>75% or above</span>
+                </div>
+
+                <div class="status warning">
+                    <span>🟡</span>
+                    <b>Warning</b>
+                    <span>65% - 74%</span>
+                </div>
+
+                <div class="status low">
+                    <span>🔴</span>
+                    <b>Low</b>
+                    <span>Below 65%</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Download Button -->
+        <div class="download">
+            <button onclick="downloadReport()">
+                ⬇ Download Attendance Report
+            </button>
+        </div>
+
+    </main>
+
+     <script>
+        function downloadReport() {
+            alert("Attendance report download started!");
+        }
+    </script>
+ 
+ <script>
+const toggle = document.getElementById("theme-toggle");
+
+/* Apply saved theme when page opens */
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+
+    if (toggle) {
+        toggle.textContent = "☀️";
+    }
+}
+
+/* Change theme */
+if (toggle) {
+    toggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+
+            localStorage.setItem("darkMode", "enabled");
+            toggle.textContent = "☀️";
+
+        } else {
+
+            localStorage.setItem("darkMode", "disabled");
+            toggle.textContent = "🌙";
+
+        }
+
+    });
+}
+</script>
+
+
+    <!-- SIDEBAR JAVASCRIPT -->
+<script>
+
+function toggleMenu() {
+
+    const sidebar = document.getElementById("sidebar");
+
+    if (sidebar.style.left === "0px") {
+
+        sidebar.style.left = "-300px";
+
+    } else {
+
+        sidebar.style.left = "0px";
+
+    }
+
+}
+
+</script>
+</body>
+</html>

@@ -38,14 +38,17 @@ nav{
     position:fixed;
     top:0;
     left:-300px;
-    width:260px;
-    height:100%;
+    width:300px;
+    height:100vh;
     background:#0b4d74;
-
-    transition:0.4s;
-    padding-top:80px;
-
     box-shadow:5px 0 15px rgba(0,0,0,.3);
+    overflow-y: auto;   /* allows scrolling */
+    overflow-x: hidden;
+    z-index: 2000;
+    transition: left 0.3s ease;
+    padding-top: 20px;
+    box-sizing: border-box;
+
 }
 
 .sidebar a{

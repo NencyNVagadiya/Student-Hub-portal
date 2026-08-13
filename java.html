@@ -2,54 +2,23 @@
 <html lang="en">
     <head>
            <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-         .faq-answer{
-            display: none;
-            margin: 20px;
-        }
-        .show{
-            display: block;
-        }
-       
-        </style>
-        </head>
+           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           <title>Document</title>
+     </head>
     <body>
-        <div class="faq">
-        <button class="faq-question">
-            what is student hub?   
-        </button>
-        <div class="faq-answer">
-           it is a platform for students. 
-        </div>
-        </div>
-         
-        <div class="faq">
-        <button class="faq-question">
-          what is MSQAL?  
-        </button>
-        <div class="faq-answer">
-              it is a database management system.
-        </div>
-        </div>
-        
-        <div class="faq">
-        <button class="faq-question">
-            what is MSQAL?  
-        </button>
-        <div class="faq-answer">
-              it is a database management system.
-        </div>
-        </div>
-        <script>
-            var slides = document.querySelectorAll('.slide');
-           var currentindex = 0;
-           document.getElementById('next').addEventListener('click', function() {
-            slides[currentindex].classList.remove('active');
-            currentindex++;
-            slides[currentindex].classList.add('active');
-        });
-            </script>
+           
+          function prompt(){ 
+            let n1 = prompt("Enter number:,0");
+            let n2 = prompt("Enter number:,0");
+            let n3 = parseInt(n1) + parseInt(n2);
+            console.log(n3);
+            alert(n3);
+              
+
+
+           
+          }
+
+
     </body> 
 </html>
