@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>StudentHub Dashboard</title>
-<link rel="stylesheet" href="Home.css">
+<link rel="stylesheet" href="Scholarship.css">
 </head>
 
 <body>
@@ -31,23 +31,391 @@
       <div class="right" id="theme-toggle">🌙</div>
     </nav>
 
-    
+    <!-- SCHOLARSHIP FINDER -->
+<!-- SCHOLARSHIP FINDER -->
+
+<section class="scholarship-finder">
+
+    <h1>🎓 Find Your Scholarship</h1>
+
+    <p>
+        Enter your CGPA to find scholarship opportunities
+        that may be suitable for you.
+    </p>
+
+    <div class="cgpa-box">
+
+        <label for="cgpa">Your CGPA</label>
+
+        <input
+            type="number"
+            id="cgpa"
+            min="0"
+            max="10"
+            step="0.01"
+            placeholder="Enter CGPA"
+        >
+
+        <button type="button" onclick="checkScholarships()">
+            🔍 Check Scholarship
+        </button>
+
+    </div>
+
+    <!-- RESULT -->
+    <div id="scholarship-result"></div>
+
+</section>
+
+
 <script>
 
-function toggleMenu(){
+function checkScholarships() {
+
+    const cgpa = parseFloat(
+        document.getElementById("cgpa").value
+    );
+
+    const result =
+        document.getElementById("scholarship-result");
+
+
+    /* VALIDATION */
+
+    if (isNaN(cgpa) || cgpa < 0 || cgpa > 10) {
+
+        result.innerHTML = `
+            <div class="error-box">
+                ⚠️ Please enter a valid CGPA between 0 and 10.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    let scholarships = "";
+
+
+    /* =========================
+       CGPA 8+
+    ========================= */
+
+    if (cgpa >= 8) {
+
+        scholarships = `
+
+        <h2 class="result-title">
+            🎉 Scholarships You Can Explore
+        </h2>
+
+        <div class="scholarship-results">
+
+            <!-- MYSY -->
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    🏆
+                </div>
+
+                <h3>
+                    MYSY Scholarship
+                </h3>
+
+                <p>
+                    A Gujarat government scholarship
+                    opportunity for eligible students.
+                </p>
+
+                <a
+                    href="https://mysy.guj.nic.in/"
+                    target="_blank"
+                    class="portal-btn"
+                >
+                    🔗 Official MYSY Portal →
+                </a>
+
+            </div>
+
+
+            <!-- CMSS -->
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    🎓
+                </div>
+
+                <h3>
+                    CMSS Scholarship
+                </h3>
+
+                <p>
+                    Chief Minister Scholarship Scheme
+                    for eligible students in Gujarat.
+                </p>
+
+                <a
+                    href="https://scholarships.gujarat.gov.in/"
+                    target="_blank"
+                    class="portal-btn"
+                >
+                    🔗 Official CMSS Portal →
+                </a>
+
+            </div>
+
+
+            <!-- RELIANCE -->
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    💙
+                </div>
+
+                <h3>
+                    Reliance Foundation Scholarship
+                </h3>
+
+                <p>
+                    Merit-cum-means scholarship opportunity
+                    for eligible undergraduate students.
+                </p>
+
+                <a
+                    href="https://www.scholarships.reliancefoundation.org/"
+                    target="_blank"
+                    class="portal-btn"
+                >
+                    🔗 Official Reliance Portal →
+                </a>
+
+            </div>
+
+        </div>
+
+        `;
+
+    }
+
+
+    /* =========================
+       CGPA 7 - 7.99
+    ========================= */
+
+    else if (cgpa >= 7) {
+
+        scholarships = `
+
+        <h2 class="result-title">
+            🎓 Scholarships You Can Explore
+        </h2>
+
+        <div class="scholarship-results">
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    🎓
+                </div>
+
+                <h3>
+                    MYSY Scholarship
+                </h3>
+
+                <p>
+                    You may explore MYSY and check the
+                    official eligibility requirements.
+                </p>
+
+                <a
+                    href="https://mysy.guj.nic.in/"
+                    target="_blank"
+                    class="portal-btn"
+                >
+                    🔗 MYSY Portal →
+                </a>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    📚
+                </div>
+
+                <h3>
+                    CMSS Scholarship
+                </h3>
+
+                <p>
+                    Check the official CMSS portal for
+                    current eligibility requirements.
+                </p>
+
+                <a
+                    href="https://scholarships.gujarat.gov.in/"
+                    target="_blank"
+                    class="portal-btn"
+                >
+                    🔗 CMSS Portal →
+                </a>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    💙
+                </div>
+
+                <h3>
+                    Reliance Foundation Scholarship
+                </h3>
+
+                <p>
+                    You may explore this merit-cum-means
+                    scholarship if other conditions are met.
+                </p>
+
+                <a
+                    href="https://www.scholarships.reliancefoundation.org/"
+                    target="_blank"
+                    class="portal-btn"
+                >
+                    🔗 Reliance Portal →
+                </a>
+
+            </div>
+
+        </div>
+
+        `;
+
+    }
+
+
+    /* =========================
+       CGPA BELOW 7
+    ========================= */
+
+    else {
+
+        scholarships = `
+
+        <h2 class="result-title">
+            📚 Scholarships You Can Explore
+        </h2>
+
+        <div class="scholarship-results">
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    💰
+                </div>
+
+                <h3>
+                    Need-Based Scholarships
+                </h3>
+
+                <p>
+                    Explore government and need-based
+                    scholarship schemes.
+                </p>
+
+                <a
+                    href="https://scholarships.gujarat.gov.in/"
+                    target="_blank"
+                    class="portal-btn"
+                >
+                    🔗 Check Government Portal →
+                </a>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <div class="result-icon">
+                    🎓
+                </div>
+
+                <h3>
+                    CMSS Scholarship
+                </h3>
+
+                <p>
+                    Check the official portal to see whether
+                    you satisfy the current requirements.
+                </p>
+
+                <a
+                    href="https://scholarships.gujarat.gov.in/"
+                    target="_blank"
+                    class="portal-btn"
+                >
+                    🔗 Check CMSS →
+                </a>
+
+            </div>
+
+        </div>
+
+        `;
+
+    }
+
+
+    /* IMPORTANT NOTICE */
+
+    scholarships += `
+
+        <div class="eligibility-note">
+
+            ℹ️ <b>Important:</b>
+
+            CGPA is used only to recommend scholarships.
+            Final eligibility depends on income, category,
+            course, year of study and other official
+            requirements.
+
+        </div>
+
+    `;
+
+
+    result.innerHTML = scholarships;
+
+}
+
+</script>
+
+<!-- SIDEBAR JAVASCRIPT -->
+<script>
+
+function toggleMenu() {
 
     const sidebar = document.getElementById("sidebar");
 
-    if(sidebar.style.left=="0px"){
-        sidebar.style.left="-300px";
-    }
-    else{
-        sidebar.style.left="0px";
+    if (sidebar.style.left === "0px") {
+
+        sidebar.style.left = "-300px";
+
+    } else {
+
+        sidebar.style.left = "0px";
+
     }
 
 }
 
 </script>
+
 
 <script>
 const toggle = document.getElementById("theme-toggle");

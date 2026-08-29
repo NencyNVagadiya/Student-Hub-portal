@@ -4,21 +4,42 @@
            <meta charset="UTF-8">
            <meta name="viewport" content="width=device-width, initial-scale=1.0">
            <title>Document</title>
+           <style>
+            .user,
+            .pass{
+               margin-bottom:25px;
+               color: aliceblue;
+               text-align:left;}
+           </style>
      </head>
     <body>
-           
-          function prompt(){ 
-            let n1 = prompt("Enter number:,0");
-            let n2 = prompt("Enter number:,0");
-            let n3 = parseInt(n1) + parseInt(n2);
-            console.log(n3);
-            alert(n3);
-              
+      <div class="user">
+        <label for="user">Username</label><br>
+        <input type="text" id="user" placeholder="Enter Username">
+    </div>
 
+    <div class="pass">
+        <label for="pass">Password</label><br>
+        <input type="password" id="pass" placeholder="Enter Password">
+    </div>
+    
+    <div class="btn">
+        <button type="button" onclick="login()">
+            Login
+        </button>
+    </div>
 
-           
-          }
+        <script>
+function login() {
+    let username = document.getElementById("user").value; /* It selects an HTML element by its ID.*/
+    let password = document.getElementById("pass").value;
 
-
+    if (username === " " && password === " ") {
+      alert("valid username or password")
+    } else {
+        alert("Invalid username or password.");
+    }
+}
+</script>
     </body> 
 </html>

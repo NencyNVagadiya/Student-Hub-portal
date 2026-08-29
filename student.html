@@ -54,10 +54,10 @@ function login() {
     let username = document.getElementById("user").value; /* It selects an HTML element by its ID.*/
     let password = document.getElementById("pass").value;
 
-    if (username === " " && password === " ") {
+    if (username === "admin" && password === "1234") {
         window.location.href = "Home.html";
     } else {
-        alert("Invalid username or password.");
+        alert("Invalid username or password. password is '1234' and username is 'admin'");
     }
 }
 </script>
