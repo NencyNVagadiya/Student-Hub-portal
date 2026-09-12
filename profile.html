@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Profile</title>
+
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+<header>
+    <nav>
+
+        <!-- Hamburger -->
+        <div class="left" onclick="toggleMenu()">☰</div>
+
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar">
+
+            <div class="close-btn" onclick="toggleMenu()">←</div>
+
+            <a href="Home.html">🏡 Home page</a>
+            <a href="AcademicCalender.html">📅 Academic Calendar</a>
+            <a href="faculty.html">👩🏼‍🏫🧑🏻‍🏫 Faculty</a>
+            <a href="fees.html">💳 Fees</a>
+            <a href="contact.html">📞 Contact Us</a>
+            <a href="attendance.html">📊 Attendance</a>
+            <a href="studentO2.html">🧑‍🎓 Student O2</a>
+            <a href="Scholarship.html">🎓 Scholarship</a>
+            <a href="study-materials.html">📚 Study Materials</a>
+            <a href="profile.html">👤 Profile</a>
+        </div>
+
+        <div class="right">
+
+            <!-- Dark Mode -->
+            <div id="theme-toggle">🌙</div>
+        </div>
+
+    </nav>
+</header>
+
+
+<main>
+
+    <!-- Profile Heading -->
+    <section class="profile-header">
+
+
+        <div class="profile-title">
+            <h1 id="displayName">Nency Vagadiya</h1>
+            <p>Computer Engineering Student</p>
+        </div>
+
+        <button id="editBtn" onclick="enableEditing()">
+            ✏️ Edit Profile
+        </button>
+
+    </section>
+
+
+    <!-- Personal Information -->
+    <section class="card">
+
+        <h2>👤 Personal Information</h2>
+
+        <div class="form-grid">
+
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="name"
+                       value="Nency Vagadiya" disabled>
+            </div>
+
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="email"
+                       value="nency@example.com" disabled>
+            </div>
+
+            <div class="input-group">
+                <label>Phone</label>
+                <input type="tel" id="phone"
+                       value="+91 98765 43210" disabled>
+            </div>
+
+            <div class="input-group">
+                <label>Enrollment No.</label>
+                <input type="text" id="enrollment"
+                       value="XXXXXXXXXX" disabled>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Academic Information -->
+    <section class="card">
+
+        <h2>🎓 Academic Information</h2>
+
+        <div class="form-grid">
+
+            <div class="input-group">
+                <label>Branch</label>
+
+                <select id="branch" disabled>
+                    <option>Computer Engineering</option>
+                    <option>Information Technology</option>
+                    <option>Computer Science</option>
+                    <option>Electronics Engineering</option>
+                </select>
+
+            </div>
+
+
+            <div class="input-group">
+                <label>Year</label>
+
+                <select id="year" disabled>
+                    <option>1st Year</option>
+                    <option selected>2nd Year</option>
+                    <option>3rd Year</option>
+                    <option>4th Year</option>
+                </select>
+
+            </div>
+
+
+            <div class="input-group">
+                <label>College</label>
+
+                <input type="text" id="college"
+                       value="CHARUSAT" disabled>
+
+            </div>
+
+
+            <div class="input-group">
+                <label>CGPA</label>
+
+                <input type="number" id="cgpa"
+                       value="6.95"
+                       min="0"
+                       max="10"
+                       step="0.01"
+                       disabled>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Academic Overview -->
+    <section class="card">
+
+        <h2>📊 Academic Overview</h2>
+
+        <div class="stats">
+
+            <div class="stat-box">
+                <h3 id="displayCGPA">6.95</h3>
+                <p>CGPA</p>
+            </div>
+
+            <div class="stat-box">
+                <h3 id="displayYear">2nd Year</h3>
+                <p>Current Year</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>75%</h3>
+                <p>Attendance</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Submit Button -->
+    <section class="submit-section">
+
+        <button id="submitBtn"
+                onclick="submitProfile()"
+                disabled>
+            ✅ Submit Changes
+        </button>
+
+    </section>
+
+
+    <!-- Message -->
+    <div id="message"></div>
+
+</main>
+<script>
+    
+function toggleMenu(){
+
+    const sidebar = document.getElementById("sidebar");
+
+    if(sidebar.style.left=="0px"){
+        sidebar.style.left="-300px";
+    }
+    else{
+        sidebar.style.left="0px";
+    }
+
+}
+</script>
+
+
+<script>
+const toggle = document.getElementById("theme-toggle");
+
+/* Apply saved theme when page opens */
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+
+    if (toggle) {
+        toggle.textContent = "☀️";
+    }
+}
+
+/* Change theme */
+if (toggle) {
+    toggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+
+            localStorage.setItem("darkMode", "enabled");
+            toggle.textContent = "☀️";
+
+        } else {
+
+            localStorage.setItem("darkMode", "disabled");
+            toggle.textContent = "🌙";
+
+        }
+
+    });
+}
+</script>
+
+</body>
+</html>

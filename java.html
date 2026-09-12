@@ -34,11 +34,31 @@ function login() {
     let username = document.getElementById("user").value; /* It selects an HTML element by its ID.*/
     let password = document.getElementById("pass").value;
 
-    if (username === " " && password === " ") {
-      alert("valid username or password")
-    } else {
-        alert("Invalid username or password.");
+     let usernameRegex = /^[A-Za-z0-9]{3,15}$/;
+      let passwordRegex = /^.{6,}$/;
+
+ if (username === "" || password === "") {
+        alert("Please enter username and password.");
+        return;
     }
+
+
+    // Invalid username
+    if (!usernameRegex.test(username)) {
+        alert("Invalid username. Use only letters and numbers.");
+        return;
+    }
+    
+    if (!passwordRegex.test(password)) {
+        alert("Password must contain at least 6 characters.");
+        return;
+    }
+
+
+    // Everything is valid
+    alert("Login successful!");
+
+
 }
 </script>
     </body> 

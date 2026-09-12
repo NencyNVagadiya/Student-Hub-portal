@@ -1,506 +1,542 @@
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentHub - Student O2</title>
-    <link rel="stylesheet" href="studentO2.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>StudentHub - Student O2</title>
+        <link rel="stylesheet" href="studentO2.css">
+    </head>
 
-<body>
+    <body>
 
-<header>
-    <nav>
+    <header>
+        <nav>
 
-        <div class="left" onclick="toggleMenu()">☰</div>
+            <div class="left" onclick="toggleMenu()">☰</div>
 
-        <div id="sidebar" class="sidebar">
+            <div id="sidebar" class="sidebar">
 
-            <div class="close-btn" onclick="toggleMenu()">←</div>
+                <div class="close-btn" onclick="toggleMenu()">←</div>
 
-            <a href="Home.html">🏡 Home page</a>
-            <a href="AcademicCalender.html">📅 Academic Calendar</a>
-            <a href="faculty.html">👩🏼‍🏫🧑🏻‍🏫 Faculty(DEPSTAR)</a>
-            <a href="fees.html">💳 Fees</a>
-            <a href="contact.html">📞 Contact Us</a>
-            <a href="attendance.html">📊 Attendance</a>
-            <a href="studentO2.html">🧑‍🎓 Student O2</a>
-            <a href="Scholarship.html">🎓 Scholarship</a>
-            <a href="study-materials.html">📚 Study Materials</a>
+                <a href="Home.html">🏡 Home page</a>
+                <a href="AcademicCalender.html">📅 Academic Calendar</a>
+                <a href="faculty.html">👩🏼‍🏫🧑🏻‍🏫 Faculty(DEPSTAR)</a>
+                <a href="fees.html">💳 Fees</a>
+                <a href="contact.html">📞 Contact Us</a>
+                <a href="attendance.html">📊 Attendance</a>
+                <a href="studentO2.html">🧑‍🎓 Student O2</a>
+                <a href="Scholarship.html">🎓 Scholarship</a>
+                <a href="study-materials.html">📚 Study Materials</a>
+                <a href="profile.html">👤 Profile</a>
 
-        </div>
+            </div>
 
-        <div class="right" id="theme-toggle">🌙</div>
+            <div class="right" id="theme-toggle">🌙</div>
 
-    </nav>
-</header>
-
-
-<main>
-
-    <h1>🧑‍🎓 Student O2 – Go Home Assistant</h1>
-
-    <p class="subtitle">
-        Plan your leave smartly. We suggest the best option for you.
-    </p>
+        </nav>
+    </header>
 
 
-    <!-- MAIN GRID -->
-    <section class="main-grid">
+    <main>
 
-        <!-- TRIP DETAILS -->
-        <div class="card trip-card">
+        <h1>🧑‍🎓 Student O2 – Go Home Assistant</h1>
 
-            <h2>🧳 Trip Details</h2>
+        <p class="subtitle">
+            Plan your leave smartly. We suggest the best option for you.
+        </p>
 
-            <div class="form-grid">
 
-                <div class="form-group">
-                    <label>Reason for Going Home</label>
+        <!-- MAIN GRID -->
+        <section class="main-grid">
 
-                    <select id="reason">
-                        <option value="Family Function">Family Function</option>
-                        <option value="Personal Work">Personal Work</option>
-                        <option value="Festival">Festival</option>
-                        <option value="Emergency">Family Emergency</option>
-                        <option value="Medical">Medical Reason</option>
-                        <option value="Other">Other</option>
-                    </select>
+            <!-- TRIP DETAILS -->
+            <div class="card trip-card">
+
+                <h2>🧳 Trip Details</h2>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Reason for Going Home</label>
+
+                        <select id="reason">
+                            <option value="Family Function">Family Function</option>
+                            <option value="Personal Work">Personal Work</option>
+                            <option value="Festival">Festival</option>
+                            <option value="Emergency">Family Emergency</option>
+                            <option value="Medical">Medical Reason</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Departure Date</label>
+                        <input type="date" id="departure">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Return Date</label>
+                        <input type="date" id="returnDate">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Number of Days</label>
+                        <input
+                            type="number"
+                            id="days"
+                            min="1"
+                            max="30"
+                            value="3">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Current Overall Attendance</label>
+                        <input
+                            type="number"
+                            id="attendance"
+                            min="0"
+                            max="100"
+                            value="82">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Important Exam During Leave?</label>
+
+                        <select id="exam">
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
                 </div>
 
 
-                <div class="form-group">
-                    <label>Departure Date</label>
-                    <input type="date" id="departure">
+                <button type="button" class="suggest-btn" onclick="getSuggestion()">
+                    💡 Get Suggestion
+                </button>
+
+            </div>
+
+
+            <!-- SUGGESTION -->
+            <div class="card suggestion-card">
+
+                <h2>🛡️ Your Suggestion</h2>
+
+                <div class="attendance-circle">
+                    <span id="attendanceDisplay">82%</span>
+                    <small>Attendance</small>
                 </div>
 
 
-                <div class="form-group">
-                    <label>Return Date</label>
-                    <input type="date" id="returnDate">
+                <div id="attendanceStatus" class="good-status">
+                    Good Attendance
                 </div>
 
 
-                <div class="form-group">
-                    <label>Number of Days</label>
-                    <input
-                        type="number"
-                        id="days"
-                        min="1"
-                        max="30"
-                        value="3">
+                <div id="suggestionBox" class="suggestion-box" style="display:none;">
+
+                    <h3 id="suggestionTitle"></h3>
+
+                    <p id="suggestionText"></p>
+
                 </div>
 
+                <div class="note-box">
 
-                <div class="form-group">
-                    <label>Current Overall Attendance</label>
-                    <input
-                        type="number"
-                        id="attendance"
-                        min="0"
-                        max="100"
-                        value="82">
-                </div>
-
-
-                <div class="form-group">
-                    <label>Important Exam During Leave?</label>
-
-                    <select id="exam">
-                        <option value="No">No</option>
-                        <option value="Yes">Yes</option>
-                    </select>
-                </div>
-
-            </div>
-
-
-            <button type="button" class="suggest-btn" onclick="getSuggestion()">
-                💡 Get Suggestion
-            </button>
-
-        </div>
-
-
-        <!-- SUGGESTION -->
-        <div class="card suggestion-card">
-
-            <h2>🛡️ Your Suggestion</h2>
-
-            <div class="attendance-circle">
-                <span id="attendanceDisplay">82%</span>
-                <small>Attendance</small>
-            </div>
-
-
-            <div id="attendanceStatus" class="good-status">
-                Good Attendance
-            </div>
-
-
-            <div id="suggestionBox" class="suggestion-box" style="display:none;">
-
-                   <h3 id="suggestionTitle"></h3>
-
-                   <p id="suggestionText"></p>
-
-            </div>
-
-            <div class="note-box">
-
-                ⚠️ <b>Note</b>
-
-                <p>
-                    Try to maintain your attendance above 75%.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- SUMMARY -->
-        <div class="card summary-card">
-
-            <h2>📋 Trip Summary</h2>
-
-
-            <div class="summary-row">
-                <span>📌 Reason</span>
-                <strong id="summaryReason">Family Function</strong>
-            </div>
-
-
-            <div class="summary-row">
-                <span>📅 From</span>
-                <strong id="summaryFrom">-</strong>
-            </div>
-
-
-            <div class="summary-row">
-                <span>📅 To</span>
-                <strong id="summaryTo">-</strong>
-            </div>
-
-
-            <div class="summary-row">
-                <span>🗓️ Total Days</span>
-                <strong id="summaryDays">3 Days</strong>
-            </div>
-
-
-            <div class="summary-row">
-                <span>📊 Attendance</span>
-                <strong id="summaryAttendance">82%</strong>
-            </div>
-
-
-            <div class="summary-row">
-                <span>📝 Exam During Leave</span>
-                <strong id="summaryExam">No</strong>
-            </div>
-
-
-            <div class="advice">
-
-                💡 <b>Overall Advice</b>
-
-                <p id="adviceText">
-                    Your attendance is good.
-                    Enjoy your time at home and don't forget to come back on time!
-                </p>
-
-            </div>
-
-
-            <button type="button" class="leave-btn" onclick="generateApplication()">
-                📄 Generate Leave Application
-            </button>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- BEFORE YOU GO -->
-    <section class="before-section">
-
-        <h2>✈️ Before You Go</h2>
-
-
-        <div class="tips-grid">
-
-            <div class="tip blue-tip">
-
-                <div class="tip-icon">📋</div>
-
-                <div>
-                    <h3>1. Inform Your Faculty</h3>
+                    ⚠️ <b>Note</b>
 
                     <p>
-                        Inform your mentor/faculty
-                        about your leave in advance.
+                        Try to maintain your attendance above 75%.
                     </p>
+
                 </div>
 
             </div>
 
 
-            <div class="tip green-tip">
+            <!-- SUMMARY -->
+            <div class="card summary-card">
 
-                <div class="tip-icon">📚</div>
+                <h2>📋 Trip Summary</h2>
 
-                <div>
-                    <h3>2. Complete Pending Work</h3>
 
-                    <p>
-                        Submit pending assignments
-                        and notes before you leave.
+                <div class="summary-row">
+                    <span>📌 Reason</span>
+                    <strong id="summaryReason">Family Function</strong>
+                </div>
+
+
+                <div class="summary-row">
+                    <span>📅 From</span>
+                    <strong id="summaryFrom">-</strong>
+                </div>
+
+
+                <div class="summary-row">
+                    <span>📅 To</span>
+                    <strong id="summaryTo">-</strong>
+                </div>
+                
+                <div class="summary-row">
+                    <span>🗓️ Total Days</span>
+                    <strong id="summaryDays">3 Days</strong>
+                    
+                </div>
+
+
+                <div class="summary-row">
+                    <span>📊 Attendance</span>
+                    <strong id="summaryAttendance">82%</strong>
+                </div>
+
+
+                <div class="summary-row">
+                    <span>📝 Exam During Leave</span>
+                    <strong id="summaryExam">No</strong>
+                </div>
+
+
+                <div class="advice">
+
+                    💡 <b>Overall Advice</b>
+
+                    <p id="adviceText">
+                        Your attendance is good.
+                        Enjoy your time at home and don't forget to come back on time!
                     </p>
+
+                </div>
+
+
+                <button type="button" class="leave-btn" onclick="generateApplication()">
+                    📄 Generate Leave Application
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- BEFORE YOU GO -->
+        <section class="before-section">
+
+            <h2>✈️ Before You Go</h2>
+
+
+            <div class="tips-grid">
+
+                <div class="tip blue-tip">
+
+                    <div class="tip-icon">📋</div>
+
+                    <div>
+                        <h3>1. Inform Your Faculty</h3>
+
+                        <p>
+                            Inform your mentor/faculty
+                            about your leave in advance.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="tip green-tip">
+
+                    <div class="tip-icon">📚</div>
+
+                    <div>
+                        <h3>2. Complete Pending Work</h3>
+
+                        <p>
+                            Submit pending assignments
+                            and notes before you leave.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="tip yellow-tip">
+
+                    <div class="tip-icon">🔔</div>
+
+                    <div>
+                        <h3>3. Stay Updated</h3>
+
+                        <p>
+                            Stay in touch with friends
+                            for important updates.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="tip purple-tip">
+
+                    <div class="tip-icon">🚆</div>
+
+                    <div>
+                        <h3>4. Travel Safe</h3>
+
+                        <p>
+                            Have a safe journey and
+                            take care of yourself.
+                        </p>
+                    </div>
+
                 </div>
 
             </div>
 
-
-            <div class="tip yellow-tip">
-
-                <div class="tip-icon">🔔</div>
-
-                <div>
-                    <h3>3. Stay Updated</h3>
-
-                    <p>
-                        Stay in touch with friends
-                        for important updates.
-                    </p>
-                </div>
-
-            </div>
+        </section>
 
 
-            <div class="tip purple-tip">
-
-                <div class="tip-icon">🚆</div>
-
-                <div>
-                    <h3>4. Travel Safe</h3>
-
-                    <p>
-                        Have a safe journey and
-                        take care of yourself.
-                    </p>
-                </div>
-
-            </div>
-
+        <div class="bottom-message">
+            ℹ️ Student O2 helps you plan your leave responsibly.
+            Use it wisely and maintain your academics.
         </div>
 
-    </section>
-
-
-    <div class="bottom-message">
-        ℹ️ Student O2 helps you plan your leave responsibly.
-        Use it wisely and maintain your academics.
-    </div>
-
-</main>
+    </main>
 
 
 
-<!-- ALL JAVASCRIPT -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- ALL JAVASCRIPT -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
- <script>
- function getSuggestion() {
+    <script>
+    function getSuggestion() {
 
-    const reason = document.getElementById("reason").value;
-    const departure = document.getElementById("departure").value;
-    const returnDate = document.getElementById("returnDate").value;
-    const days = Number(document.getElementById("days").value);
-    const attendance = Number(document.getElementById("attendance").value);
-    const exam = document.getElementById("exam").value;
+        const reason = document.getElementById("reason").value;
+        const departure = document.getElementById("departure").value;
+        const returnDate = document.getElementById("returnDate").value;
+        const days = Number(document.getElementById("days").value);
+        const attendance = Number(document.getElementById("attendance").value);
+        const exam = document.getElementById("exam").value;
 
-    const suggestionBox = document.getElementById("suggestionBox");
-    const suggestionTitle = document.getElementById("suggestionTitle");
-    const suggestionText = document.getElementById("suggestionText");
+        const suggestionBox = document.getElementById("suggestionBox");
+        const suggestionTitle = document.getElementById("suggestionTitle");
+        const suggestionText = document.getElementById("suggestionText");
 
-    // Check dates
-    if (departure === "" || returnDate === "") {
-        alert("Please enter departure and return date.");
-        return;
-    }
+        // Check dates
+        if (departure === "" || returnDate === "") {
+            alert("Please enter departure and return date.");
+            return;
+        }
+        // Check number of days
+        if (isNaN(days) || days < 1 || days > 30) {
+            alert("⚠️ Number of days must be between 1 and 30.");
+            return;
+        }
 
-    // Show suggestion box
-    suggestionBox.style.display = "block";
+        // Show suggestion box
+        suggestionBox.style.display = "block";
 
-    // Exam condition
-    if (exam === "Yes") {
+        // Exam condition
+        if (exam === "Yes") {
 
-        suggestionTitle.textContent = "⚠️ Avoid Leave!";
-        suggestionText.textContent =
-            "You have an important exam during your leave. It is better to avoid leave and attend the exam.";
-
-    }
-
-    // Low attendance
-    else if (attendance < 75) {
-
-        suggestionTitle.textContent = "⚠️ Leave Not Recommended";
-        suggestionText.textContent =
-            "Your attendance is below 75%. Taking " + days +
-            " days of leave may affect your attendance. Try to avoid unnecessary leave.";
-
-    }
-
-    // Good attendance
-    else if (attendance >= 75) {
-
-        suggestionTitle.textContent = "✔ Leave May Be Manageable";
-        suggestionText.textContent =
-            "Your attendance is " + attendance +
-            "%. You may consider taking " + days +
-            " days of leave for " + reason +
-            ". Make sure to cover missed lectures and assignments.";
-
-    }
-
-    // Update summary
-    document.getElementById("summaryReason").textContent = reason;
-    document.getElementById("summaryFrom").textContent = departure;
-    document.getElementById("summaryTo").textContent = returnDate;
-    document.getElementById("summaryDays").textContent = days + " Days";
-    document.getElementById("summaryAttendance").textContent = attendance + "%";
-    document.getElementById("summaryExam").textContent = exam;
-}
-</script>
-
- <script>
-function toggleMenu() {
-    const sidebar = document.getElementById("sidebar");
-
-    if (sidebar.style.left === "0px") {
-        sidebar.style.left = "-300px";
-    } else {
-        sidebar.style.left = "0px";
-    }
-}
-</script>
-
-<script>
-const toggle = document.getElementById("theme-toggle");
-
-/* Apply saved theme when page opens */
-if (localStorage.getItem("darkMode") === "enabled") {
-    document.body.classList.add("dark-mode");
-
-    if (toggle) {
-        toggle.textContent = "☀️";
-    }
-}
-
-/* Change theme */
-if (toggle) {
-    toggle.addEventListener("click", function () {
-
-        document.body.classList.toggle("dark-mode");
-
-        if (document.body.classList.contains("dark-mode")) {
-
-            localStorage.setItem("darkMode", "enabled");
-            toggle.textContent = "☀️";
-
-        } else {
-
-            localStorage.setItem("darkMode", "disabled");
-            toggle.textContent = "🌙";
+            suggestionTitle.textContent = "⚠️ Avoid Leave!";
+            suggestionText.textContent =
+                "You have an important exam during your leave. It is better to avoid leave and attend the exam.";
 
         }
 
-    });
+        // Low attendance
+        else if (attendance < 75) {
+
+            suggestionTitle.textContent = "⚠️ Leave Not Recommended";
+            suggestionText.textContent =
+                "Your attendance is below 75%. Taking " + days +
+                " days of leave may affect your attendance. Try to avoid unnecessary leave.";
+
+        }
+
+        // Good attendance
+        else if (attendance >= 75) {
+
+            suggestionTitle.textContent = "✔ Leave May Be Manageable";
+            suggestionText.textContent =
+                "Your attendance is " + attendance +
+                "%. You may consider taking " + days +
+                " days of leave for " + reason +
+                ". Make sure to cover missed lectures and assignments.";
+
+        }
+
+        
+
+        // Update summary
+        document.getElementById("summaryReason").textContent = reason;
+        document.getElementById("summaryFrom").textContent = departure;
+        document.getElementById("summaryTo").textContent = returnDate;
+        document.getElementById("summaryDays").textContent = days + " Days";
+        document.getElementById("summaryAttendance").textContent = attendance + "%";
+        document.getElementById("summaryExam").textContent = exam;
+    }
+    </script>
+
+    document.getElementById("summaryExam").textContent = exam;
 }
+
+
+// Number of Days validation
+const daysInput = document.getElementById("days");
+
+daysInput.addEventListener("input", function () {
+
+    let value = Number(this.value);
+
+    if (value > 30) {
+        this.value = 30;
+        alert("⚠️ Maximum 30 days allowed.");
+    }
+
+    if (value < 1 && this.value !== "") {
+        this.value = 1;
+        alert("⚠️ Minimum 1 day required.");
+    }
+
+});
+
 </script>
 
 <script>
-function generateApplication() {
+function toggleMenu() {
 
-    const reason = document.getElementById("reason").value;
-    const departure = document.getElementById("departure").value;
-    const returnDate = document.getElementById("returnDate").value;
-    const days = document.getElementById("days").value;
-    const attendance = document.getElementById("attendance").value;
-    const exam = document.getElementById("exam").value;
+    <script>
+    function toggleMenu() {
+        const sidebar = document.getElementById("sidebar");
 
-    if (departure === "" || returnDate === "") {
-        alert("Please enter Departure Date and Return Date first.");
-        return;
+        if (sidebar.style.left === "0px") {
+            sidebar.style.left = "-300px";
+        } else {
+            sidebar.style.left = "0px";
+        }
+    }
+    </script>
+
+    <script>
+    const toggle = document.getElementById("theme-toggle");
+
+    /* Apply saved theme when page opens */
+    if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark-mode");
+
+        if (toggle) {
+            toggle.textContent = "☀️";
+        }
     }
 
-    const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF();
+    /* Change theme */
+    if (toggle) {
+        toggle.addEventListener("click", function () {
 
-    pdf.setFontSize(20);
-    pdf.text("STUDENTHUB", 105, 20, {
-        align: "center"
-    });
+            document.body.classList.toggle("dark-mode");
 
-    pdf.setFontSize(16);
-    pdf.text("Leave Application", 105, 32, {
-        align: "center"
-    });
+            if (document.body.classList.contains("dark-mode")) {
 
-    pdf.line(20, 38, 190, 38);
+                localStorage.setItem("darkMode", "enabled");
+                toggle.textContent = "☀️";
 
-    pdf.setFontSize(12);
+            } else {
 
-    pdf.text("Reason for Leave:", 20, 55);
-    pdf.text(reason, 75, 55);
+                localStorage.setItem("darkMode", "disabled");
+                toggle.textContent = "🌙";
 
-    pdf.text("Departure Date:", 20, 68);
-    pdf.text(departure, 75, 68);
+            }
 
-    pdf.text("Return Date:", 20, 81);
-    pdf.text(returnDate, 75, 81);
+        });
+    }
+    </script>
 
-    pdf.text("Number of Days:", 20, 94);
-    pdf.text(days + " Days", 75, 94);
+    <script>
+    function generateApplication() {
 
-    pdf.text("Current Attendance:", 20, 107);
-    pdf.text(attendance + "%", 75, 107);
+        const reason = document.getElementById("reason").value;
+        const departure = document.getElementById("departure").value;
+        const returnDate = document.getElementById("returnDate").value;
+        const days = document.getElementById("days").value;
+        const attendance = document.getElementById("attendance").value;
+        const exam = document.getElementById("exam").value;
 
-    pdf.text("Exam During Leave:", 20, 120);
-    pdf.text(exam, 75, 120);
+        if (departure === "" || returnDate === "") {
+            alert("Please enter Departure Date and Return Date first.");
+            return;
+        }
 
-    pdf.text("Leave Request:", 20, 145);
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF();
 
-    const message =
-        "I request leave due to " + reason +
-        ". I will be away from " + departure +
-        " to " + returnDate +
-        " for " + days +
-        " days. I will make sure to complete the missed academic work.";
+        pdf.setFontSize(20);
+        pdf.text("STUDENTHUB", 105, 20, {
+            align: "center"
+        });
 
-    const lines = pdf.splitTextToSize(message, 170);
+        pdf.setFontSize(16);
+        pdf.text("Leave Application", 105, 32, {
+            align: "center"
+        });
 
-    pdf.text(lines, 20, 158);
+        pdf.line(20, 38, 190, 38);
 
-    pdf.text(
-        "Student Signature: __________________",
-        20,
-        200
+        pdf.setFontSize(12);
+
+        pdf.text("Reason for Leave:", 20, 55);
+        pdf.text(reason, 75, 55);
+
+        pdf.text("Departure Date:", 20, 68);
+        pdf.text(departure, 75, 68);
+
+        pdf.text("Return Date:", 20, 81);
+        pdf.text(returnDate, 75, 81);
+
+        pdf.text("Number of Days:", 20, 94);
+        pdf.text(days + " Days", 75, 94);
+
+        pdf.text("Current Attendance:", 20, 107);
+        pdf.text(attendance + "%", 75, 107);
+
+        pdf.text("Exam During Leave:", 20, 120);
+        pdf.text(exam, 75, 120);
+
+        pdf.text("Leave Request:", 20, 145);
+
+        const message =
+            "I request leave due to " + reason +
+            ". I will be away from " + departure +
+            " to " + returnDate +
+            " for " + days +
+            " days. I will make sure to complete the missed academic work.";
+
+        const lines = pdf.splitTextToSize(message, 170);
+
+        pdf.text(lines, 20, 158);
+
+        pdf.text(
+            "Student Signature: __________________",
+            20,
+            200
+        );
+
+        pdf.text(
+        "Faculty Signature: __________________",
+        180,
+        200,
+        { align: "right" }
     );
 
-    pdf.text(
-    "Faculty Signature: __________________",
-    180,
-    200,
-    { align: "right" }
-);
+        pdf.save("StudentHub_Leave_Application.pdf");
+    }
+    </script>
 
-    pdf.save("StudentHub_Leave_Application.pdf");
-}
-</script>
-
-</body>
-</html>
+    </body>
+    </html>
