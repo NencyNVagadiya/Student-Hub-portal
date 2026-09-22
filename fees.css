@@ -140,3 +140,121 @@ nav{
 .dark-mode tr:hover td{
     background:#333;
 }
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    /* Navbar */
+    nav {
+        width: 90%;
+        height: 55px;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .left {
+        font-size: 26px;
+    }
+
+    .right {
+        font-size: 24px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 260px;
+        max-width: 80%;
+    }
+
+    .sidebar a {
+        padding: 16px;
+        font-size: 18px;
+    }
+
+    .close-btn {
+        padding: 16px;
+        font-size: 28px;
+    }
+
+    /* Table */
+    table {
+        width: 95%;
+        margin: 25px auto;
+        font-size: 14px;
+    }
+
+    th {
+        padding: 10px 6px;
+        font-size: 15px;
+    }
+
+    td {
+        padding: 10px 6px;
+        font-size: 14px;
+    }
+
+    /* Calendar image */
+    .calendar {
+        width: 95%;
+        height: auto;
+        margin: auto;
+    }
+}
+
+
+/* ================= SMALL PHONE ================= */
+
+@media (max-width: 480px) {
+
+    /* Navbar */
+    nav {
+        width: 90%;
+        height: 52px;
+        padding: 0 12px;
+    }
+
+    .left {
+        font-size: 24px;
+    }
+
+    .right {
+        font-size: 22px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 240px;
+    }
+
+    .sidebar a {
+        padding: 14px;
+        font-size: 17px;
+    }
+
+    .close-btn {
+        padding: 14px;
+        font-size: 26px;
+    }
+
+    /* Table */
+    table {
+        width: 96%;
+        margin: 20px auto;
+    }
+
+    th {
+        padding: 8px 4px;
+        font-size: 13px;
+    }
+
+    td {
+        padding: 8px 4px;
+        font-size: 12px;
+    }
+
+    /* Calendar */
+    .calendar {
+        width: 96%;
+        height: auto;
+    }
+}

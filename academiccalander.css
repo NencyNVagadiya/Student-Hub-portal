@@ -89,3 +89,88 @@ nav{
 .dark-mode nav{
     background:#222;
 }
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    /* Navbar */
+    nav {
+        width: 90%;
+        height: 55px;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .left {
+        font-size: 26px;
+    }
+
+    .right {
+        font-size: 24px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 260px;
+        max-width: 80%;
+    }
+
+    .sidebar a {
+        padding: 16px;
+        font-size: 18px;
+    }
+
+    .close-btn {
+        padding: 16px;
+        font-size: 28px;
+    }
+
+    /* Calendar/Image */
+    .calendar {
+        width: 95%;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+
+/* ================= SMALL PHONES ================= */
+
+@media (max-width: 480px) {
+
+    /* Navbar */
+    nav {
+        width: 90%;
+        height: 52px;
+        padding: 0 12px;
+    }
+
+    .left {
+        font-size: 24px;
+    }
+
+    .right {
+        font-size: 22px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 240px;
+    }
+
+    .sidebar a {
+        padding: 14px;
+        font-size: 17px;
+    }
+
+    .close-btn {
+        padding: 14px;
+        font-size: 26px;
+    }
+
+    /* Calendar/Image */
+    .calendar {
+        width: 96%;
+        height: auto;
+    }
+}

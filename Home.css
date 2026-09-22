@@ -182,3 +182,135 @@ body{
 .dark-mode .close-btn{
     color:white;
 }
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    /* Navbar */
+    nav {
+        width: 90%;
+        height: 55px;
+        padding: 0 15px;
+        border-radius: 12px;
+    }
+
+    /* Hamburger menu */
+    .left {
+        font-size: 26px;
+    }
+
+    /* Dark mode button */
+    .right {
+        font-size: 24px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 260px;
+        max-width: 80%;
+    }
+
+    .sidebar a {
+        padding: 16px;
+        font-size: 18px;
+    }
+
+    .close-btn {
+        padding: 16px;
+        font-size: 28px;
+    }
+
+    /* Main content */
+    .content {
+        margin-left: 8%;
+        margin-right: 8%;
+        margin-top: 50px;
+    }
+
+    /* Welcome heading */
+    .content h3 {
+        font-size: 24px;
+    }
+
+    /* StudentHub heading */
+    .content h1 {
+        font-size: 42px;
+        line-height: 1.1;
+    }
+
+    /* Yellow line */
+    .line {
+        width: 120px;
+        height: 4px;
+    }
+
+    /* Description */
+    .content p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* Background */
+    body {
+        background-attachment: scroll;
+    }
+}
+
+
+/* ================= SMALL PHONES ================= */
+
+@media (max-width: 480px) {
+
+    nav {
+        width: 88%;
+        height: 52px;
+        padding: 0 12px;
+    }
+
+    .left {
+        font-size: 24px;
+    }
+
+    .right {
+        font-size: 22px;
+    }
+
+    .sidebar {
+        width: 240px;
+    }
+
+    .sidebar a {
+        padding: 14px;
+        font-size: 17px;
+    }
+
+    .close-btn {
+        padding: 14px;
+        font-size: 26px;
+    }
+
+    .content {
+        margin-left: 7%;
+        margin-right: 7%;
+        margin-top: 40px;
+    }
+
+    .content h3 {
+        font-size: 21px;
+    }
+
+    .content h1 {
+        font-size: 36px;
+    }
+
+    .content p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .line {
+        width: 100px;
+        height: 4px;
+    }
+}
