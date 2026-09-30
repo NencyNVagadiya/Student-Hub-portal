@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "title": "Mid-Semester Examination",
+        "category": "Exam",
+        "date": "2026-10-05",
+        "description": "Mid-semester examinations will begin from 5 October 2026."
+    },
+    {
+        "id": 2,
+        "title": "Navratri Holiday",
+        "category": "Holiday",
+        "date": "2026-10-10",
+        "description": "The college will remain closed for Navratri holidays."
+    },
+    {
+        "id": 3,
+        "title": "Web Development Workshop",
+        "category": "Workshop",
+        "date": "2026-10-15",
+        "description": "A workshop on modern web development will be conducted."
+    },
+    {
+        "id": 4,
+        "title": "Assignment Submission",
+        "category": "Academic",
+        "date": "2026-10-18",
+        "description": "Submit your Web Development assignment before the deadline."
+    },
+    {
+        "id": 5,
+        "title": "Hackathon Registration",
+        "category": "Event",
+        "date": "2026-10-20",
+        "description": "Students can register for the upcoming college hackathon."
+    },
+    {
+        "id": 6,
+        "title": "Library Notice",
+        "category": "Notice",
+        "date": "2026-10-22",
+        "description": "Students are requested to return overdue library books."
+    }
+]

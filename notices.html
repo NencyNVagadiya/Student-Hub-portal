@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>StudentHub Notices</title>
+
+    <link rel="stylesheet" href="notices.css">
+
+</head>
+
+<body>
+    <header>
+            <nav>
+      <div class="left" onclick="toggleMenu()">☰</div>
+      <div id="sidebar" class="sidebar">
+         <div class="close-btn" onclick="toggleMenu()"> ← </div>
+            <a href="Home.html">🏡Home page</a>
+            <a href="AcademicCalender.html">📅Academic Calendar</a>
+            <a href="faculty.html">👩🏼‍🏫🧑🏻‍🏫Faculty(DEPSTAR)</a>
+            <a href="fees.html">💳 Fees</a>
+            <a href="contact.html">📞 Contact Us</a>
+            <a href="attendance.html">📊 Attendance</a>
+            <a href="studentO2.html">📜 Student O2</a>
+            <a href="Scholarship.html">🎓 Scholarship</a>
+            <a href="study-materials.html">📚 Study Materials</a>
+            <a href="profile.html">👤 Profile</a>
+            <a href="notices.html">📢 Notices</a>
+        </div>
+    
+      <div class="right" id="theme-toggle">🌙</div>
+      </nav>
+        </header>
+
+    <h1>📢 StudentHub Notices</h1>
+
+    <!-- Search -->
+    <input
+        type="text"
+        id="search"
+        placeholder="Search notices..."
+        oninput="displayNotices()"
+    >
+
+    <!-- Filter -->
+    <select id="filter" onchange="displayNotices()">
+
+        <option value="All">All Categories</option>
+        <option value="Exam">Exam</option>
+        <option value="Holiday">Holiday</option>
+        <option value="Workshop">Workshop</option>
+        <option value="Academic">Academic</option>
+        <option value="Event">Event</option>
+        <option value="Notice">Notice</option>
+
+    </select>
+
+    <!-- Sorting -->
+    <select id="sort" onchange="displayNotices()">
+
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+        <option value="az">Title A-Z</option>
+        <option value="za">Title Z-A</option>
+
+    </select>
+
+    <!-- Notices will appear here -->
+    <div id="noticeContainer"></div>
+
+    <!-- Pagination -->
+    <div id="pagination"></div>
+
+    <script src="notices.js"></script>
+
+</body>
+
+</html>
