@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,221 +8,289 @@
     <title>StudentHub - Contact Us</title>
 
     <link rel="stylesheet" href="contact.css">
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-<header>
-    <nav>
 
-        <div class="left" onclick="toggleMenu()">☰</div>
+    <!-- ================= HEADER ================= -->
+    <header>
+        <nav>
 
-        <div id="sidebar" class="sidebar">
+            <!-- Menu Button -->
+            <div class="left" onclick="toggleMenu()" aria-label="Open menu">
+                ☰
+            </div>
 
-            <div class="close-btn" onclick="toggleMenu()">←</div>
-            <a href="Home.html">🏡Home page</a>
-            <a href="AcademicCalender.html">📅 Academic Calendar</a>
-            <a href="faculty.html">👩🏼‍🏫🧑🏻‍🏫 Faculty(DEPSTAR)</a>
-            <a href="fees.html">💳 Fees</a>
-            <a href="contact.html">📞 Contact Us</a>
-            <a href="attendance.html">📊 Attendance</a>
-            <a href="studentO2.html">🧑‍🎓 Student O2</a>
-            <a href="Scholarship.html">🎓 Scholarship</a>
-            <a href="study-materials.html">📚 Study Materials</a>
-            <a href="profile.html">👤 Profile</a>
-            <a href="notices.html">📢 Notices</a>
+            <!-- Sidebar -->
+            <div id="sidebar" class="sidebar">
+
+                <div class="close-btn" onclick="toggleMenu()">
+                    ←
+                </div>
+
+                <a href="Home.html">🏡 Home Page</a>
+                <a href="AcademicCalender.html">📅 Academic Calendar</a>
+                <a href="faculty.html">👩🏼‍🏫 Faculty (DEPSTAR)</a>
+                <a href="fees.html">💳 Fees</a>
+                <a href="contact.html">📞 Contact Us</a>
+                <a href="attendance.html">📊 Attendance</a>
+                <a href="studentO2.html">🧑‍🎓 Student O2</a>
+                <a href="Scholarship.html">🎓 Scholarship</a>
+                <a href="study-materials.html">📚 Study Materials</a>
+                <a href="profile.html">👤 Profile</a>
+                <a href="notices.html">📢 Notices</a>
+
+            </div>
+
+            <!-- Dark Mode Button -->
+            <div class="right" id="theme-toggle" title="Toggle dark mode">
+                🌙
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="contact-container">
+
+        <h1>Contact Us</h1>
+
+        <p class="subtitle">
+            We are here to help you. Reach out to us anytime!
+        </p>
+
+
+        <div class="contact-content">
+
+
+            <!-- ================= CONTACT INFORMATION ================= -->
+            <section class="contact-info">
+
+                <h2>Get In Touch</h2>
+
+
+                <div class="info-box">
+
+                    <span>📍</span>
+
+                    <div>
+                        <h3>Address</h3>
+
+                        <p>
+                            CHARUSAT Campus, Changa,<br>
+                            Anand - 388421, Gujarat, India
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <span>📞</span>
+
+                    <div>
+                        <h3>Phone</h3>
+
+                        <p>
+                            +91 02697 265011
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <span>📧</span>
+
+                    <div>
+                        <h3>Email</h3>
+
+                        <p>
+                            info@charusat.ac.in
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <span>🕐</span>
+
+                    <div>
+                        <h3>Working Hours</h3>
+
+                        <p>
+                            Monday - Saturday<br>
+                            9:10 AM - 4:20 PM
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ================= CONTACT FORM ================= -->
+            <section class="contact-form">
+
+                <h2>Send Us a Message</h2>
+
+                <form action="process.php" method="POST">
+
+                    <div class="input-row">
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Your Name"
+                            minlength="3"
+                            maxlength="50"
+                            required
+                        >
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Your Email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <input
+                        type="text"
+                        name="subject"
+                        placeholder="Subject"
+                        minlength="3"
+                        maxlength="100"
+                        required
+                    >
+
+
+                    <textarea
+                        name="message"
+                        placeholder="Your Message"
+                        rows="6"
+                        minlength="5"
+                        maxlength="1000"
+                        required
+                    ></textarea>
+
+
+                    <button type="submit">
+                        Send Message ✈️
+                    </button>
+
+                </form>
+
+            </section>
+
         </div>
 
-        <div class="right" id="theme-toggle">🌙</div>
-
-    </nav>
-</header>
-
-<main class="contact-container">
-
-    <h1>Contact Us</h1>
-
-    <p class="subtitle"> We are here to help you. Reach out to us anytime!</p>
+    </main>
 
 
-    <div class="contact-content">
 
-        <div class="contact-info">
+    <!-- ================= FOOTER ================= -->
+    <footer>
 
-            <h2>Get In Touch</h2>
+        <p>
+            📍 CHARUSAT University, Changa, Gujarat, India
+            &nbsp; | &nbsp;
+            © 2026 StudentHub. All rights reserved.
+        </p>
 
-            <div class="info-box">
-                <span>📍</span>
-                <div>
-                    <h3>Address</h3>
-                    <p>
-                        CHARUSAT Campus, Changa,<br>
-                        Anand - 388421, Gujarat, India
-                    </p>
-                </div>
-            </div>
+    </footer>
 
 
-            <div class="info-box">
-                <span>📞</span>
-                <div>
-                    <h3>Phone</h3>
-                    <p>+91 02697 265011</p>
-                </div>
-            </div>
 
-            <div class="info-box">
-                <span>📧</span>
-                <div>
-                    <h3>Email</h3>
-                    <p> info@charusat.ac.in</p>
-                </div>
-            </div>
+    <!-- ================= JAVASCRIPT ================= -->
 
-            <div class="info-box">
-                <span>🕐</span>
-                <div>
-                    <h3>Working Hours</h3>
-                    <p>
-                        Monday - Saturday<br>
-                        9:10 AM - 4:20 PM
-                    </p>
-                </div>
-            </div>
+    <script>
 
-        </div>
+        /* ================= SIDEBAR ================= */
 
-        <div class="contact-form">
+        function toggleMenu() {
 
-            <h2>Send Us a Message</h2>
+            const sidebar = document.getElementById("sidebar");
 
-<form>
-
-    <div class="input-row">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email"  name="email"  placeholder="Your Email"  required>
-    </div>
-
-    <input type="text" name="subject" placeholder="Subject" required>
-    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-
-    <button type="submit">
-        Send Message ✈️
-    </button>
-
-</form>
-
-        </div>
-
-    </div>
-
-</main>
-
-<footer>
-
-    <p>
-        📍 CHARUSAT University, Changa, Gujarat, India
-        &nbsp;&nbsp; | &nbsp;&nbsp;
-        © 2026 StudentHub. All rights reserved.
-    </p>
-
-</footer>
-
-
-<!-- SIDEBAR JAVASCRIPT -->
-<script>
-
-function toggleMenu() {
-
-    const sidebar = document.getElementById("sidebar");
-
-    if (sidebar.style.left === "0px") {
-
-        sidebar.style.left = "-300px";
-
-    } else {
-
-        sidebar.style.left = "0px";
-
-    }
-
-}
-
-</script>
-
-
-<script>
-const toggle = document.getElementById("theme-toggle");
-
-/* Apply saved theme when page opens */
-if (localStorage.getItem("darkMode") === "enabled") {
-    document.body.classList.add("dark-mode");
-
-    if (toggle) {
-        toggle.textContent = "☀️";
-    }
-}
-
-/* Change theme */
-if (toggle) {
-    toggle.addEventListener("click", function () {
-
-        document.body.classList.toggle("dark-mode");
-
-        if (document.body.classList.contains("dark-mode")) {
-
-            localStorage.setItem("darkMode", "enabled");
-            toggle.textContent = "☀️";
-
-        } else {
-
-            localStorage.setItem("darkMode", "disabled");
-            toggle.textContent = "🌙";
+            sidebar.classList.toggle("open");
 
         }
 
-    });
-}
-</script>
 
-<script>
-emailjs.init({
-    publicKey: "C1YizhTx3EAR5XR8m"
-});
 
-const form = document.querySelector(".contact-form form");
+        /* Close sidebar when clicking outside */
 
-form.addEventListener("submit", function(event) {
+        document.addEventListener("click", function(event) {
 
-    event.preventDefault();
+            const sidebar = document.getElementById("sidebar");
+            const menuButton = document.querySelector(".left");
 
-    emailjs.sendForm(
-        "service_8sthdns",
-        "template_lvh4r96",
-        form
-    )
-    .then(function(response) {
+            if (
+                sidebar.classList.contains("open") &&
+                !sidebar.contains(event.target) &&
+                !menuButton.contains(event.target)
+            ) {
 
-        console.log("SUCCESS STATUS:", response.status);
-        console.log("SUCCESS TEXT:", response.text);
+                sidebar.classList.remove("open");
 
-        alert("Message sent successfully! 📩");
+            }
 
-        form.reset();
+        });
 
-    })
-    .catch(function(error) {
 
-        console.error("ERROR STATUS:", error.status);
-        console.error("ERROR TEXT:", error.text);
-        console.error("FULL ERROR:", error);
 
-        alert("Message could not be sent ❌");
+        /* ================= DARK MODE ================= */
 
-    });
+        const toggle = document.getElementById("theme-toggle");
 
-});
-</script>
+
+        /* Load saved theme */
+
+        if (localStorage.getItem("darkMode") === "enabled") {
+
+            document.body.classList.add("dark-mode");
+
+            toggle.textContent = "☀️";
+
+        }
+
+
+
+        /* Change theme */
+
+        toggle.addEventListener("click", function() {
+
+            document.body.classList.toggle("dark-mode");
+
+
+            if (document.body.classList.contains("dark-mode")) {
+
+                localStorage.setItem("darkMode", "enabled");
+
+                toggle.textContent = "☀️";
+
+            }
+
+            else {
+
+                localStorage.setItem("darkMode", "disabled");
+
+                toggle.textContent = "🌙";
+
+            }
+
+        });
+
+    </script>
+
 </body>
+
 </html>
