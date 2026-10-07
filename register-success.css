@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url("contact.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* Success box */
+
+.success-box {
+    width: 450px;
+    max-width: 90%;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    padding: 40px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Success icon */
+
+.success-icon {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+
+/* Heading */
+
+.success-box h1 {
+    color: #0b4d74;
+
+    font-size: 30px;
+
+    margin: 10px 0 15px;
+}
+
+
+/* Message */
+
+.success-box p {
+    color: #444;
+
+    font-size: 17px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Login button */
+
+.success-box a {
+    display: inline-block;
+
+    padding: 12px 25px;
+
+    background: #0b4d74;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 25px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.success-box a:hover {
+    background: #1678c9;
+
+    transform: scale(1.05);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .success-box {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    .success-box h1 {
+        font-size: 25px;
+    }
+
+    .success-box p {
+        font-size: 15px;
+    }
+}

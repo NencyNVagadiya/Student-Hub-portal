@@ -31,37 +31,29 @@
 <h1 class="login">LOGIN</h1>
 
 <div class="line"></div>
-<form class="box">
+<form class="box" action="login.php" method="POST">
 
     <div class="user">
         <label for="user">Username</label><br>
-        <input type="text" id="user" placeholder="Enter Username">
+        <input type="text" id="user" name="username" placeholder="Enter Username" required >
     </div>
 
     <div class="pass">
         <label for="pass">Password</label><br>
-        <input type="password" id="pass" placeholder="Enter Password">
+        <input type="password" id="pass" name="password" placeholder="Enter Password" required >
     </div>
 
     <div class="btn">
-        <button type="button" onclick="login()">
+        <button type="submit">
             Login
         </button>
     </div>
-    
-</form>
-<script>
-function login() {
-    let username = document.getElementById("user").value; /* It selects an HTML element by its ID.*/
-    let password = document.getElementById("pass").value;
 
-    if (username === "admin" && password === "1234") {
-        window.location.href = "Home.html";
-    } else {
-        alert("Invalid username or password. password is '1234' and username is 'admin'");
-    }
-}
-</script>
+</form>
+<p class="register-link">
+    Don't have an account?
+    <a href="register.html">Register</a>
+</p>
 </section>
 </main>
 <script>

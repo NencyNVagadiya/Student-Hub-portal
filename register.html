@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudentHub - Register</title>
+
+    <link rel="stylesheet" href="register.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="right">
+                <div id="theme-toggle">🌙</div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <section>
+
+            <h1 class="register-title">REGISTER</h1>
+
+            <div class="line"></div>
+
+            <form class="box" action="register_login.php" method="POST">
+
+                <div class="field">
+                    <label for="username">Username</label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter Username"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="email">Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter Email"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter Password"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="confirm_password">Confirm Password</label>
+
+                    <input
+                        type="password"
+                        id="confirm_password"
+                        name="confirm_password"
+                        placeholder="Confirm Password"
+                        required
+                    >
+                </div>
+
+                <div class="btn">
+                    <button type="submit">
+                        Register
+                    </button>
+                </div>
+
+            </form>
+
+            <p class="login-link">
+                Already have an account?
+                <a href="student.html">Login</a>
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        const toggle = document.getElementById("theme-toggle");
+
+        if (localStorage.getItem("darkMode") === "enabled") {
+
+            document.body.classList.add("dark-mode");
+
+            toggle.textContent = "☀️";
+        }
+
+        toggle.addEventListener("click", function () {
+
+            document.body.classList.toggle("dark-mode");
+
+            if (document.body.classList.contains("dark-mode")) {
+
+                localStorage.setItem("darkMode", "enabled");
+                toggle.textContent = "☀️";
+
+            } else {
+
+                localStorage.setItem("darkMode", "disabled");
+                toggle.textContent = "🌙";
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
