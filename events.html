@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudentHub - Events</title>
+
+    <link rel="stylesheet" href="events.css">
+</head>
+
+<body>
+
+      <header>
+            <nav>
+      <div class="left" onclick="toggleMenu()">☰</div>
+      <div id="sidebar" class="sidebar">
+         <div class="close-btn" onclick="toggleMenu()"> ← </div>
+            <a href="Home.html">🏡Home page</a>
+            <a href="AcademicCalender.html">📅Academic Calendar</a>
+            <a href="faculty.html">👩🏼‍🏫🧑🏻‍🏫Faculty(DEPSTAR)</a>
+            <a href="fees.html">💳 Fees</a>
+            <a href="contact.html">📞 Contact Us</a>
+            <a href="attendance.html">📊 Attendance</a>
+            <a href="studentO2.html">📜 Student O2</a>
+            <a href="Scholarship.html">🎓 Scholarship</a>
+            <a href="study-materials.html">📚 Study Materials</a>
+            <a href="profile.html">👤 Profile</a>
+            <a href="notices.html">📢 Notices</a>
+            <a href="events.php">🎉 Events</a>
+        </div>
+    
+      <div class="right" id="theme-toggle">🌙</div>
+      </nav>
+        </header>
+    <div class="container">
+
+        <h1>🎓 StudentHub Events</h1>
+
+        <form action="event_register.php" method="POST">
+
+            <label>Student ID</label>
+
+            <input
+                type="number"
+                name="student_id"
+                placeholder="Enter Student ID"
+                required
+            >
+
+            <label>Select Event</label>
+
+            <select name="event_id" required>
+
+                <option value="">-- Select Event --</option>
+
+                <option value="1">Hackathon</option>
+
+            </select>
+
+            <button type="submit">
+                Register for Event
+            </button>
+
+        </form>
+
+    </div>
+
+    
+ <script>
+const toggle = document.getElementById("theme-toggle");
+
+/* Apply saved theme when page opens */
+if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+
+    if (toggle) {
+        toggle.textContent = "☀️";
+    }
+}
+
+/* Change theme */
+if (toggle) {
+    toggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+
+            localStorage.setItem("darkMode", "enabled");
+            toggle.textContent = "☀️";
+
+        } else {
+
+            localStorage.setItem("darkMode", "disabled");
+            toggle.textContent = "🌙";
+
+        }
+
+    });
+}
+</script>
+    
+    <script>
+
+function toggleMenu(){
+
+    const sidebar = document.getElementById("sidebar");/* It selects an HTML element by its ID.*/
+
+    if(sidebar.style.left=="0px"){
+        sidebar.style.left="-300px";
+    }
+    else{
+        sidebar.style.left="0px";
+    }
+
+}
+
+</script>
+
+</body>
+</html>

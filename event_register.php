@@ -2,74 +2,29 @@
 
 require "db.php";
 
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    http_response_code(405);
-    exit("Method not allowed.");
+$student_id = $_POST["student_id"] ?? "";
+$event_id = $_POST["event_id"] ?? "";
+
+if ($student_id == "" || $event_id == "") {
+    die("Please select a student and event.");
 }
 
-$studentId = strtoupper(trim($_POST["student_id"] ?? ""));
-$eventId = filter_var($_POST["event_id"] ?? null, FILTER_VALIDATE_INT);
+$sql = "INSERT INTO registrations
+        (student_id, event_id, registration_date)
+        VALUES
+        (:student_id, :event_id, CURDATE())";
 
-if (!preg_match('/^[A-Z0-9][A-Z0-9-]{0,31}$/', $studentId)) {
-    http_response_code(400);
-    exit("Enter a valid Student ID.");
-}
+$stmt = $pdo->prepare($sql);
 
-if ($eventId === false || $eventId === null || $eventId < 1) {
-    http_response_code(400);
-    exit("Select a valid event.");
-}
+$stmt->execute([
+    ":student_id" => $student_id,
+    ":event_id" => $event_id
+]);
 
-// Get the event (also gives us its name to show)
-$eventCheck = $pdo->prepare(
-    "SELECT event_name FROM events WHERE event_id = :event_id"
-);
-$eventCheck->execute([":event_id" => $eventId]);
-$event = $eventCheck->fetch(PDO::FETCH_ASSOC);
+echo "<h2>✅ Event Registration Successful!</h2>";
+echo "<p>Student ID: " . htmlspecialchars($student_id) . "</p>";
+echo "<p>Event ID: " . htmlspecialchars($event_id) . "</p>";
 
-if (!$event) {
-    http_response_code(400);
-    exit("The selected event does not exist.");
-}
+echo '<a href="events.php">← Back to Events</a>';
 
-// Look up the student (optional, just to show the name)
-$studentCheck = $pdo->prepare(
-    "SELECT name, email FROM students WHERE student_id = :student_id"
-);
-$studentCheck->execute([":student_id" => $studentId]);
-$student = $studentCheck->fetch(PDO::FETCH_ASSOC);
-
-// Save the registration
-try {
-    $stmt = $pdo->prepare(
-        "INSERT INTO registrations (student_id, event_id, registration_date)
-         VALUES (:student_id, :event_id, CURDATE())"
-    );
-    $stmt->execute([
-        ":student_id" => $studentId,
-        ":event_id"   => $eventId
-    ]);
-} catch (PDOException $e) {
-    http_response_code(400);
-    exit("Could not register. Student ID may not exist or is already registered.");
-}
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Registration Successful</title>
-    <link rel="stylesheet" href="events.css">
-</head>
-<body>
-<div class="container">
-    <h1>✅ Registration Successful!</h1>
-    <p><strong>Student ID:</strong> <?php echo htmlspecialchars($studentId); ?></p>
-    <?php if ($student) { ?>
-        <p><strong>Name:</strong> <?php echo htmlspecialchars($student["name"]); ?></p>
-        <p><strong>Email:</strong> <?php echo htmlspecialchars($student["email"]); ?></p>
-    <?php } ?>
-    <p><strong>Event:</strong> <?php echo htmlspecialchars($event["event_name"]); ?></p>
-    <p><a href="events.php">← Back to Events</a></p>
-</div>
-</body>
-</html>
