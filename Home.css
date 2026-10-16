@@ -57,6 +57,8 @@ nav{
     text-decoration:none;
     padding:10px 20px; 
     font-size:18px;
+    padding:10px 20px;
+    font-size: 20px;
     transition:.3s;
 }
 

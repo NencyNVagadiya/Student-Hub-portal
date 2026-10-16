@@ -78,8 +78,9 @@ nav{
 main{
     display:flex;
     justify-content:center;
-    align-items:center;
-    min-height:90vh;
+    align-items:flex-start;
+    min-height:auto;
+    padding:20px 0 40px;
 }
 
 .login{
@@ -152,6 +153,23 @@ button{
 button:hover{
     background:#e8f4ff;
 }
+
+.register-link {
+    color: rgb(203, 21, 21);
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.register-link a {
+    color: rgb(187, 29, 29);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.register-link a:hover {
+    color: #dceeff;
+}
 /* Dark Mode */
 .dark-mode{
     background-color:#1e1e1e;
@@ -187,5 +205,5 @@ button:hover{
 
 section{
     text-align:center;
-    margin-top:-70px;
+    margin-top:0;
 }

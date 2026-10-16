@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Add heading only when file is empty
     if (filesize($file) == 0) {
-
+        
         fputcsv($handle, [
             "Name",
             "Email",
@@ -35,6 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ]);
 
     fclose($handle);
+
+    echo "<h2>✅ Message Submitted Successfully!</h2>";
+    echo "<p>Your data has been saved in contacts.csv</p>";
+    echo '<a href="contact.html">Back to Contact Us</a>';
 
 ?>
 
