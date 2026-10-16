@@ -1,101 +1,98 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StudentHub - Login</title>
-   <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap"
+          rel="stylesheet">
 </head>
 
 <body>
 
 <header>
+    <nav>
+        <div class="left"></div>
 
-<nav>
-<div class="left"></div>
-
-<div class="right">
-<div id="theme-toggle" style="cursor:pointer;">🌙</div>
-</div>
-
-</nav>
-
+        <div class="right">
+            <div id="theme-toggle" style="cursor:pointer;">🌙</div>
+        </div>
+    </nav>
 </header>
 
 <main>
+    <section>
+        <h1 class="login">LOGIN</h1>
+        <div class="line"></div>
 
-<section>
+        <form class="box" action="login.php" method="POST">
 
-<h1 class="login">LOGIN</h1>
+            <div class="user">
+                <label for="user">Username</label><br>
+                <input type="text" id="user" name="username"
+                       placeholder="Enter Username" required>
+            </div>
 
-<div class="line"></div>
-<form class="box">
+            <div class="pass">
+                <label for="pass">Password</label><br>
+                <input type="password" id="pass" name="password"
+                       placeholder="Enter Password" required>
+            </div>
 
-    <div class="user">
-        <label for="user">Username</label><br>
-        <input type="text" id="user" placeholder="Enter Username">
-    </div>
+            <label>
+                <input type="checkbox" name="remember_me" value="1">
+                Remember Me
+            </label>
 
-    <div class="pass">
-        <label for="pass">Password</label><br>
-        <input type="password" id="pass" placeholder="Enter Password">
-    </div>
+            <div class="btn">
+                <button type="submit">Login</button>
+            </div>
 
-    <div class="btn">
-        <button type="button" onclick="login()">
-            Login
-        </button>
-    </div>
-    
-</form>
-<script>
-function login() {
-    let username = document.getElementById("user").value; /* It selects an HTML element by its ID.*/
-    let password = document.getElementById("pass").value;
+        </form>
 
-    if (username === "admin" && password === "1234") {
-        window.location.href = "Home.html";
-    } else {
-        alert("Invalid username or password. password is '1234' and username is 'admin'");
-    }
-}
-</script>
-</section>
+        <p id="login-message"></p>
+
+        <p>Don't have an account? <a href="register.html">Register</a></p>
+    </section>
 </main>
+
 <script>
+// Display login/logout/timeout messages
+const params = new URLSearchParams(window.location.search);
+const message = document.getElementById("login-message");
+
+if (params.get("error") === "invalid") {
+    message.textContent = "Invalid username or password.";
+} else if (params.get("error") === "empty") {
+    message.textContent = "Please enter your username and password.";
+} else if (params.get("timeout") === "1") {
+    message.textContent = "Your session expired. Please log in again.";
+} else if (params.get("logout") === "1") {
+    message.textContent = "You have logged out successfully.";
+}
+
+// Theme toggle
 const toggle = document.getElementById("theme-toggle");
 
-/* Apply saved theme when page opens */
 if (localStorage.getItem("darkMode") === "enabled") {
     document.body.classList.add("dark-mode");
+    toggle.textContent = "☀️";
+}
 
-    if (toggle) {
+toggle.addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("darkMode", "enabled");
         toggle.textContent = "☀️";
+    } else {
+        localStorage.setItem("darkMode", "disabled");
+        toggle.textContent = "🌙";
     }
-}
-
-/* Change theme */
-if (toggle) {
-    toggle.addEventListener("click", function () {
-
-        document.body.classList.toggle("dark-mode");
-
-        if (document.body.classList.contains("dark-mode")) {
-
-            localStorage.setItem("darkMode", "enabled");
-            toggle.textContent = "☀️";
-
-        } else {
-
-            localStorage.setItem("darkMode", "disabled");
-            toggle.textContent = "🌙";
-
-        }
-
-    });
-}
+});
 </script>
 
 </body>

@@ -48,15 +48,15 @@ nav{
     transition: left 0.3s ease;
     padding-top: 20px;
     box-sizing: border-box;
-
+    padding-bottom: 60px;
 }
 
 .sidebar a{
     display:block;
     color:white;
     text-decoration:none;
-    padding:20px;
-    font-size:22px;
+    padding:10px 20px; 
+    font-size:18px;
     transition:.3s;
 }
 
