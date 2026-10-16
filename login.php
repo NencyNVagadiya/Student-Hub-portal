@@ -1,54 +1,76 @@
-<?php
 
+<?php
+session_start();
+
+// Connect to database
 $conn = new mysqli("localhost", "root", "", "studenthub");
 
 if ($conn->connect_error) {
-    die("Database connection failed");
+    http_response_code(500);
+    exit("Database connection failed.");
 }
 
+// Get login details
 $username = trim($_POST["username"] ?? "");
 $password = $_POST["password"] ?? "";
 
-if ($username == "" || $password == "") {
-    die("Please enter username and password.");
+// Check empty fields
+if ($username === "" || $password === "") {
+    header("Location: student.html?error=empty");
+    exit;
 }
 
-// Find user
-$sql = "SELECT * FROM users WHERE username = ?";
+// Find user in database
+$sql = "SELECT user_id, username, password, role
+        FROM users
+        WHERE username = ?";
 
 $stmt = $conn->prepare($sql);
+
+if (!$stmt) {
+    http_response_code(500);
+    exit("Database query failed.");
+}
+
 $stmt->bind_param("s", $username);
 $stmt->execute();
 
 $result = $stmt->get_result();
+$user = $result->fetch_assoc();
 
-if ($result->num_rows == 1) {
+// Verify password
+if ($user && password_verify($password, $user["password"])) {
 
-    $user = $result->fetch_assoc();
+    // Create a new session ID after login
+    session_regenerate_id(true);
 
-    // Verify password
-    if (password_verify($password, $user["password"])) {
+    // Store user information in session
+    $_SESSION["user_id"] = $user["user_id"];
+    $_SESSION["username"] = $user["username"];
+    $_SESSION["role"] = $user["role"];
+    $_SESSION["last_activity"] = time();
 
-        echo "<h2>✅ Login Successful!</h2>";
-        echo "<p>Welcome, " . htmlspecialchars($user["username"]) . "!</p>";
+    $role = $user["role"];
 
+    $stmt->close();
+    $conn->close();
+
+    // Redirect according to role
+    if ($role === "admin") {
+        header("Location: admin.php");
     } else {
-
-       echo "<script>
-         alert('❌ Invalid Password');
-          window.location.href = 'student.html';
-         </script>";
+        header("Location: dashboard.php");
     }
+
+    exit;
 
 } else {
 
-   echo "<script>
-           alert('❌ User Not Found');
-           window.location.href = 'student.html';
-           </script>";
+    $stmt->close();
+    $conn->close();
+
+    // Incorrect username or password
+    header("Location: student.html?error=invalid");
+    exit;
 }
-
-$stmt->close();
-$conn->close();
-
 ?>
