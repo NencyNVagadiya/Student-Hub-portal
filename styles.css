@@ -207,3 +207,136 @@ section{
     text-align:center;
     margin-top:0;
 }
+/* Mobile Responsive CSS */
+
+/* Prevent horizontal scrolling */
+* {
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 600px) {
+
+    body {
+        min-height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+    }
+
+    header {
+        padding: 12px;
+    }
+
+    nav {
+        width: 100%;
+        height: auto;
+        padding: 10px 15px;
+        justify-content: flex-end;
+    }
+
+    .right {
+        gap: 10px;
+    }
+
+    #theme-toggle {
+        font-size: 25px;
+        padding: 5px;
+    }
+
+    main {
+        width: 100%;
+        min-height: auto;
+        padding: 20px 15px 35px;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    section {
+        width: 100%;
+        max-width: 400px;
+        margin-top: 10px;
+    }
+
+    .login {
+        font-size: clamp(38px, 10vw, 50px);
+        letter-spacing: 2px;
+        margin-top: 10px;
+        margin-bottom: 12px;
+    }
+
+    .line {
+        width: 90px;
+        height: 3px;
+        margin: 0 auto 25px;
+    }
+
+    .box {
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+        padding: 24px 20px;
+        border-radius: 12px;
+    }
+
+    .user,
+    .pass {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input:not([type="checkbox"]) {
+        width: 100%;
+        height: 42px;
+        padding: 10px 14px;
+        margin-top: 8px;
+        margin-bottom: 12px;
+        font-size: 16px;
+    }
+
+    input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        margin: 0 6px 0 0;
+        vertical-align: middle;
+    }
+
+    button {
+        width: 100px;
+        height: 40px;
+        font-size: 15px;
+    }
+
+    .btn {
+        margin-top: 15px;
+    }
+
+    .register-link {
+        font-size: 14px;
+        margin-top: 18px;
+    }
+
+    #login-message {
+        overflow-wrap: anywhere;
+        font-size: 14px;
+    }
+}
+
+/* Extra-small phones */
+@media screen and (max-width: 360px) {
+
+    main {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .box {
+        padding: 20px 15px;
+    }
+
+    .login {
+        font-size: 36px;
+    }
+}
