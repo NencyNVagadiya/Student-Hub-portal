@@ -155,20 +155,20 @@ button:hover{
 }
 
 .register-link {
-    color: rgb(203, 21, 21);
+    color: white;
     text-align: center;
     margin-top: 20px;
     font-size: 15px;
 }
 
 .register-link a {
-    color: rgb(187, 29, 29);
+    color: white;
     font-weight: bold;
     text-decoration: underline;
 }
 
 .register-link a:hover {
-    color: #dceeff;
+    color: white;
 }
 /* Dark Mode */
 .dark-mode{
