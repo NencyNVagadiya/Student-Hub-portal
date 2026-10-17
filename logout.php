@@ -23,6 +23,6 @@ if (ini_get("session.use_cookies")) {
 // Destroy the session
 session_destroy();
 
-header("Location: student.html?logout=1");
+header("Location: student.html? logout=1");
 exit;
 ?>

@@ -54,15 +54,9 @@ if ($user && password_verify($password, $user["password"])) {
 
     $stmt->close();
     $conn->close();
-
-    // Redirect according to role
-    if ($role === "admin") {
-        header("Location: admin.php");
-    } else {
-        header("Location: dashboard.php");
-    }
-
-    exit;
+   // Redirect after successful login
+header("Location: Home.html");
+exit;
 
 } else {
 
