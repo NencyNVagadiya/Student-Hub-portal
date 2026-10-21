@@ -27,8 +27,11 @@ $result = $conn->query($sql);
 <div class="container">
     <!-- Top Navigation Bar between Practicals -->
     <div style="background: #0f172a; color: #fff; padding: 10px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
-        <span><strong>WDF Practical Series:</strong> Practical 12 (Event Management CRUD)</span>
-        <a href="practical13.php" style="color: #93c5fd; text-decoration: none; font-weight: 600;">Go to Practical 13 (Fetch API CRUD) &rarr;</a>
+        <span><strong>WDF Practical 12:</strong> Event Management CRUD</span>
+        <div>
+            <a href="practical13.php" style="color: #93c5fd; text-decoration: none; font-weight: 600; margin-right: 14px;">Practical 13 (Fetch CRUD) &rarr;</a>
+            <a href="practical14_login.php" style="color: #93c5fd; text-decoration: none; font-weight: 600;">Practical 14 (Admin Dashboard) &rarr;</a>
+        </div>
     </div>
 
     <!-- Header with Action Button -->

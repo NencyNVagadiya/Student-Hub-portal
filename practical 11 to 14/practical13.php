@@ -13,10 +13,11 @@
     <!-- Top Navigation Bar between Practicals -->
     <nav class="top-nav">
         <div>
-            <strong>WDF Practical Series:</strong> Practical 13 (Fetch API & JSON CRUD)
+            <strong>WDF Practical 13:</strong> Fetch API & JSON CRUD
         </div>
         <div>
-            <a href="index.php">&larr; Switch to Practical 12 (Event Management CRUD)</a>
+            <a href="index.php" style="margin-right: 14px;">&larr; Practical 12 (Events)</a>
+            <a href="practical14_login.php">Practical 14 (Admin Dashboard) &rarr;</a>
         </div>
     </nav>
 
