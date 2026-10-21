@@ -1,0 +1,334 @@
+/* ========================================================
+   style.css - Practical 12: Event Management System
+   Clean, simple, beginner-friendly styling
+   ======================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, "Helvetica Neue", sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.5;
+    padding: 24px 16px;
+}
+
+.container {
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+/* Page Header */
+.header-box {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.header-box h1 {
+    font-size: 24px;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.header-box p {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+/* Alert Notification Messages */
+.alert {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.alert-success {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+}
+
+.alert-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.15s ease-in-out;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-edit {
+    background-color: #d97706;
+    color: #ffffff;
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.btn-edit:hover {
+    background-color: #b45309;
+}
+
+.btn-danger {
+    background-color: #dc2626;
+    color: #ffffff;
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.btn-danger:hover {
+    background-color: #b91c1c;
+}
+
+.btn-secondary {
+    background-color: #64748b;
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #475569;
+}
+
+/* Data Table */
+.table-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    text-align: left;
+}
+
+thead {
+    background-color: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+th {
+    padding: 14px 16px;
+    color: #334155;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+}
+
+tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Poster Thumbnail in Table */
+.poster-thumb {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    display: block;
+    background-color: #e2e8f0;
+}
+
+.poster-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.action-links {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 48px 24px;
+    color: #64748b;
+}
+
+.empty-state h3 {
+    font-size: 18px;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+/* Form Styles */
+.form-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 28px 32px;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.form-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.form-subtitle {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.form-group label .required {
+    color: #dc2626;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #1e293b;
+    font-family: inherit;
+    transition: border-color 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.file-hint {
+    display: block;
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 5px;
+}
+
+/* Poster Preview in Edit / Delete */
+.current-poster-box {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.current-poster-preview {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+/* Confirmation Box for Delete */
+.confirm-box {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    max-width: 540px;
+    margin: 40px auto;
+}
+
+.confirm-box h2 {
+    color: #dc2626;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.confirm-details {
+    background-color: #f8fafc;
+    border-left: 4px solid #dc2626;
+    padding: 14px;
+    margin: 16px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+}
+
+.confirm-details p {
+    margin-bottom: 6px;
+}
+
+.confirm-details p:last-child {
+    margin-bottom: 0;
+}

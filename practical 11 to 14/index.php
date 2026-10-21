@@ -1,213 +1,122 @@
-
 <?php
+/**
+ * index.php - View All Events
+ * Practical 12: Event Management System
+ */
+
 require_once "db.php";
 
-// Fetch students
-$search = trim($_GET['search'] ?? '');
-$course = trim($_GET['course'] ?? '');
+// Fetch success or error messages from query string
+$successMessage = trim($_GET['success'] ?? '');
+$errorMessage   = trim($_GET['error'] ?? '');
 
-$sql = "SELECT * FROM students WHERE 1=1";
-$params = [];
-$types = "";
-
-if ($search !== '') {
-    $sql .= " AND (name LIKE ? OR email LIKE ?)";
-    $value = "%$search%";
-    $params[] = $value;
-    $params[] = $value;
-    $types .= "ss";
-}
-
-if ($course !== '') {
-    $sql .= " AND course = ?";
-    $params[] = $course;
-    $types .= "s";
-}
-
-$sql .= " ORDER BY id DESC";
-
-$stmt = $conn->prepare($sql);
-
-if (!empty($params)) {
-    $stmt->bind_param($types, ...$params);
-}
-
-$stmt->execute();
-$result = $stmt->get_result();
-
-// Fetch available courses for the filter
-$courses = $conn->query(
-    "SELECT DISTINCT course FROM students ORDER BY course"
-);
+// Fetch all events from database ordered by date
+$sql = "SELECT * FROM events ORDER BY event_date ASC, id DESC";
+$result = $conn->query($sql);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Management</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            padding: 30px;
-            font-family: Arial, sans-serif;
-            background: #f1f5f9;
-            color: #1e293b;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        h1 {
-            color: #075985;
-        }
-
-        .toolbar, .filters {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        input, select, button, .btn {
-            padding: 11px 14px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-
-        input {
-            flex: 1;
-            min-width: 180px;
-        }
-
-        button, .btn {
-            background: #0369a1;
-            color: white;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .table-box {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 14px;
-            border-bottom: 1px solid #e2e8f0;
-            text-align: left;
-        }
-
-        th {
-            background: #e0f2fe;
-        }
-
-        .message {
-            padding: 12px;
-            background: #dcfce7;
-            margin-bottom: 15px;
-            border-radius: 6px;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 15px;
-            }
-        }
-    </style>
+    <title>Event Management System - Practical 12</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="container">
-    <h1>Student Management System</h1>
-    <p>Manage, search and filter student records.</p>
 
-    <?php if (isset($_GET['message'])): ?>
-        <div class="message">
-            <?= htmlspecialchars($_GET['message']) ?>
+<div class="container">
+    <!-- Header with Action Button -->
+    <header class="header-box">
+        <div>
+            <h1>Event Management System</h1>
+            <p>Admin Portal &bull; WDF Practical 12 Demo</p>
+        </div>
+        <a href="add.php" class="btn btn-primary">+ Add New Event</a>
+    </header>
+
+    <!-- Feedback Alerts -->
+    <?php if ($successMessage !== ''): ?>
+        <div class="alert alert-success">
+            <span>&#10003;</span>
+            <span><?= htmlspecialchars($successMessage) ?></span>
         </div>
     <?php endif; ?>
 
-    <div class="toolbar">
-        <a class="btn" href="add.php">+ Add Student</a>
-    </div>
+    <?php if ($errorMessage !== ''): ?>
+        <div class="alert alert-error">
+            <span>&#9888;</span>
+            <span><?= htmlspecialchars($errorMessage) ?></span>
+        </div>
+    <?php endif; ?>
 
-    <form method="GET" class="filters">
-        <input
-            type="text"
-            name="search"
-            placeholder="Search name or email..."
-            value="<?= htmlspecialchars($search) ?>"
-        >
-
-        <select name="course">
-            <option value="">All Courses</option>
-
-            <?php while ($row = $courses->fetch_assoc()): ?>
-                <option
-                    value="<?= htmlspecialchars($row['course']) ?>"
-                    <?= $course === $row['course'] ? 'selected' : '' ?>
-                >
-                    <?= htmlspecialchars($row['course']) ?>
-                </option>
-            <?php endwhile; ?>
-        </select>
-
-        <button type="submit">Search / Filter</button>
-        <a class="btn" href="index.php">Reset</a>
-    </form>
-
-    <div class="table-box">
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Course</th>
-                    <th>Semester</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php if ($result->num_rows > 0): ?>
-                <?php while ($student = $result->fetch_assoc()): ?>
+    <!-- Events Table Card -->
+    <div class="table-card">
+        <div class="table-wrapper">
+            <table>
+                <thead>
                     <tr>
-                        <td><?= (int)$student['id'] ?></td>
-                        <td><?= htmlspecialchars($student['name']) ?></td>
-                        <td><?= htmlspecialchars($student['email']) ?></td>
-                        <td><?= htmlspecialchars($student['course']) ?></td>
-                        <td><?= (int)$student['semester'] ?></td>
-                        <td>
-                            <a href="edit.php?id=<?= (int)$student['id'] ?>">Edit</a>
-                            |
-                            <a href="delete.php?id=<?= (int)$student['id'] ?>">Delete</a>
+                        <th style="width: 50px;">#</th>
+                        <th style="width: 80px;">Poster</th>
+                        <th>Event Name</th>
+                        <th style="width: 120px;">Date</th>
+                        <th style="width: 160px;">Venue</th>
+                        <th>Description</th>
+                        <th style="width: 140px; text-align: center;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php if ($result && $result->num_rows > 0): ?>
+                    <?php $count = 1; ?>
+                    <?php while ($event = $result->fetch_assoc()): ?>
+                        <?php
+                            $posterFile = $event['poster'];
+                            $posterPath = "uploads/" . $posterFile;
+                            $hasPoster = (!empty($posterFile) && file_exists(__DIR__ . "/" . $posterPath));
+                        ?>
+                        <tr>
+                            <td><?= $count++ ?></td>
+                            <td>
+                                <?php if ($hasPoster): ?>
+                                    <a href="<?= htmlspecialchars($posterPath) ?>" target="_blank" title="Click to view full poster">
+                                        <img src="<?= htmlspecialchars($posterPath) ?>" alt="Poster" class="poster-thumb">
+                                    </a>
+                                <?php else: ?>
+                                    <span style="font-size: 11px; color: #94a3b8; font-style: italic;">No Poster</span>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <strong><?= htmlspecialchars($event['event_name']) ?></strong>
+                            </td>
+                            <td>
+                                <?= htmlspecialchars(date("d M Y", strtotime($event['event_date']))) ?>
+                            </td>
+                            <td><?= htmlspecialchars($event['venue']) ?></td>
+                            <td><?= nl2br(htmlspecialchars($event['description'])) ?></td>
+                            <td style="text-align: center;">
+                                <div class="action-links" style="justify-content: center;">
+                                    <a href="edit.php?id=<?= (int)$event['id'] ?>" class="btn btn-edit">Edit</a>
+                                    <a href="delete.php?id=<?= (int)$event['id'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="7">
+                            <div class="empty-state">
+                                <h3>No Events Found</h3>
+                                <p>There are no events in the database right now.</p>
+                                <br>
+                                <a href="add.php" class="btn btn-primary">+ Add Your First Event</a>
+                            </div>
                         </td>
                     </tr>
-                <?php endwhile; ?>
-            <?php else: ?>
-                <tr>
-                    <td colspan="6">No student records found.</td>
-                </tr>
-            <?php endif; ?>
-            </tbody>
-        </table>
+                <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
+
 </body>
 </html>

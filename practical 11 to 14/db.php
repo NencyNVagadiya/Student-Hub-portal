@@ -1,23 +1,23 @@
-
 <?php
-$host = "localhost";
+/**
+ * db.php - Database Connection Configuration
+ * Practical 12: Event Management System
+ */
+
+// Database credentials
+$host     = "localhost";
 $username = "root";
 $password = "";
-$database = "studenthub_demo";
+$database = "event_management";
 
-// Connect PHP to MySQL using MySQLi
-$conn = new mysqli(
-    $host,
-    $username,
-    $password,
-    $database
-);
+// Create MySQLi connection
+$conn = new mysqli($host, $username, $password, $database);
 
-// Check connection
+// Check if connection succeeded
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Database Connection Failed: " . $conn->connect_error);
 }
 
+// Set charset to utf8mb4 for unicode character support
 $conn->set_charset("utf8mb4");
-
 ?>
